@@ -1,0 +1,11 @@
+apiVersion: cde.cpd.ibm.com/v1
+kind: CdeProxyService
+metadata:
+  name: cdeproxyservice-cr
+  namespace: @CP4D_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+    license: Enterprise
+  version: @CP4D_VERSION@
+  storageClass: @CP4D_STORAGE_CLASS@

@@ -1,0 +1,24 @@
+{
+    "channel":
+    [
+        {
+            "name": "SECUREQMCHL",
+            "clientConnection":
+            {
+                "connection":
+                [
+                    {
+                        "host": "@HOSTNAME@",
+                        "port": 443
+                    }
+                ],
+                "queueManager": "SECUREQM"
+            },
+            "transmissionSecurity":
+            {
+              "cipherSpecification": "ECDHE_RSA_AES_128_CBC_SHA256"
+            },
+            "type": "clientConnection"
+        }
+   ]
+}

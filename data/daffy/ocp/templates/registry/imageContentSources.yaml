@@ -1,0 +1,136 @@
+imageContentSources:
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/openshift@LOCAL_OCP_REPOSITORY_NAME@
+  source: quay.io/openshift-release-dev/ocp-release
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/openshift@LOCAL_OCP_REPOSITORY_NAME@
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/ocs4-rook-ceph-rhel8-operator
+  source: registry.redhat.io/ocs4/rook-ceph-rhel8-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-compliance-openscap-rhel8
+  source: registry.redhat.io/openshift4/compliance-openscap-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/compliance-openshift-compliance-content-rhel8
+  source: registry.redhat.io/compliance/openshift-compliance-content-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/ocs4-mcg-rhel8-operator
+  source: registry.redhat.io/ocs4/mcg-rhel8-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/ocs4-ocs-must-gather-rhel8
+  source: registry.redhat.io/ocs4/ocs-must-gather-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-csi-external-snapshotter
+  source: registry.redhat.io/openshift4/ose-csi-external-snapshotter
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/ocs4-ocs-operator-bundle
+  source: registry.redhat.io/ocs4/ocs-operator-bundle
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/compliance-openshift-file-integrity-rhel8-operator
+  source: registry.redhat.io/compliance/openshift-file-integrity-rhel8-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-local-storage-operator
+  source: registry.redhat.io/openshift4/ose-local-storage-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-compliance-rhel8-operator-metadata
+  source: registry.redhat.io/openshift4/compliance-rhel8-operator-metadata
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-compliance-rhel8-operator
+  source: registry.redhat.io/openshift4/compliance-rhel8-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-csi-external-provisioner
+  source: registry.redhat.io/openshift4/ose-csi-external-provisioner
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/quay-quay-container-security-rhel8-operator-metadata
+  source: registry.redhat.io/quay/quay-container-security-rhel8-operator-metadata
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-local-storage-operator-bundle
+  source: registry.redhat.io/openshift4/ose-local-storage-operator-bundle
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-file-integrity-rhel8-operator
+  source: registry.redhat.io/openshift4/file-integrity-rhel8-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/ocs4-ocs-rhel8-operator
+  source: registry.redhat.io/ocs4/ocs-rhel8-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-csi-external-snapshotter-rhel8
+  source: registry.redhat.io/openshift4/ose-csi-external-snapshotter-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/quay-quay-container-security-operator-rhel8
+  source: registry.redhat.io/quay/quay-container-security-operator-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-local-storage-static-provisioner
+  source: registry.redhat.io/openshift4/ose-local-storage-static-provisioner
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/compliance-openshift-file-integrity-operator-bundle
+  source: registry.redhat.io/compliance/openshift-file-integrity-operator-bundle
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/ocs4-volume-replication-rhel8-operator
+  source: registry.redhat.io/ocs4/volume-replication-rhel8-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-csi-node-driver-registrar
+  source: registry.redhat.io/openshift4/ose-csi-node-driver-registrar
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/quay-quay-container-security-rhel8-operator
+  source: registry.redhat.io/quay/quay-container-security-rhel8-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/rhel8-postgresql-12
+  source: registry.redhat.io/rhel8/postgresql-12
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/ocs4-cephcsi-rhel8
+  source: registry.redhat.io/ocs4/cephcsi-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/compliance-openshift-compliance-openscap-rhel8
+  source: registry.redhat.io/compliance/openshift-compliance-openscap-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-csi-external-resizer
+  source: registry.redhat.io/openshift4/ose-csi-external-resizer
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/compliance-openshift-compliance-rhel8-operator
+  source: registry.redhat.io/compliance/openshift-compliance-rhel8-operator
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-local-storage-diskmaker
+  source: registry.redhat.io/openshift4/ose-local-storage-diskmaker
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-compliance-content-rhel8
+  source: registry.redhat.io/openshift4/compliance-content-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-csi-external-attacher
+  source: registry.redhat.io/openshift4/ose-csi-external-attacher
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/quay-quay-container-security-operator-bundle
+  source: registry.redhat.io/quay/quay-container-security-operator-bundle
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/ocs4-mcg-core-rhel8
+  source: registry.redhat.io/ocs4/mcg-core-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-csi-external-provisioner-rhel8
+  source: registry.redhat.io/openshift4/ose-csi-external-provisioner-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-ose-csi-external-resizer-rhel8
+  source: registry.redhat.io/openshift4/ose-csi-external-resizer-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/openshift4-file-integrity-rhel8-operator-metadata
+  source: registry.redhat.io/openshift4/file-integrity-rhel8-operator-metadata
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/compliance-openshift-compliance-operator-bundle
+  source: registry.redhat.io/compliance/openshift-compliance-operator-bundle
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/olm-mirror/rhceph-rhceph-4-rhel8
+  source: registry.redhat.io/rhceph/rhceph-4-rhel8
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/opencloudio
+  source: quay.io/opencloudio
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/cp
+  source: cp.icr.io/cp
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/cp/cpd
+  source: cp.icr.io/cp/cpd
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/cpopen
+  source: icr.io/cpopen
+- mirrors:
+  - @LOCAL_REGISTRY_DNS_NAME@:@LOCAL_REGISTRY_PORT@/db2u
+  source: icr.io/db2u

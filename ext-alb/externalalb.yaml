@@ -1,0 +1,15 @@
+apiVersion: operator.openshift.io/v1
+kind: IngressController
+metadata:
+  name: external-lb
+  namespace: openshift-ingress-operator
+spec:
+  domain: external.apps.bjs-cp4i.ocp.bjswholesale.info
+  endpointPublishingStrategy:
+    type: LoadBalancerService
+    loadBalancer:
+      scope: External
+      providerParameters:
+        type: AWS
+        aws:
+          type: NLB

@@ -1,0 +1,37 @@
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  name: secureqm
+spec:
+  license:
+    accept: true
+    license: L-RJON-BZFQU2
+    use: NonProduction
+  queueManager:
+    name: SECUREQM
+    mqsc:
+    - configMap:
+        name: example-tls-configmap
+        items:
+        - tls.mqsc
+    storage:
+      queueManager:
+        type: ephemeral
+  template:
+    pod:
+      containers:
+        - env:
+            - name: MQSNOAUT
+              value: 'yes'
+          name: qmgr
+  version: 9.2.3.0-r1 # MQ version supported with CP4I v2021.3 & v2021.4
+  web:
+    enabled: true
+  pki:
+    keys:
+      - name: example
+        secret:
+          secretName: example-tls-secret
+          items:
+          - tls.key
+          - tls.crt

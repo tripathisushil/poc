@@ -1,0 +1,12 @@
+apiVersion: automation.websphere.ibm.com/v1
+kind: WebSphereHealth
+metadata:
+  name: wsa-health
+  namespace: @WSA_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+  fileStore:
+      storage:
+        class: @WSA_STORAGE_CLASS@
+        size: @WSA_STORAGE_SIZE@

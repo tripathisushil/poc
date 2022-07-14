@@ -1,0 +1,37 @@
+Spider mode enabled. Check if remote file exists.
+--2022-06-30 14:58:39--  https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.8.40
+Resolving mirror.openshift.com (mirror.openshift.com)... 18.67.76.76, 18.67.76.98, 18.67.76.28, ...
+Connecting to mirror.openshift.com (mirror.openshift.com)|18.67.76.76|:443... connected.
+HTTP request sent, awaiting response... 
+  HTTP/1.1 302 Moved Temporarily
+  Content-Type: application/xml
+  Content-Length: 0
+  Connection: keep-alive
+  Date: Wed, 29 Jun 2022 15:06:09 GMT
+  Server: AmazonS3
+  Location: /pub/openshift-v4/x86_64/clients/ocp/4.8.40/
+  X-Cache: Hit from cloudfront
+  Via: 1.1 9c6666844f92bfc6b8685747b641abc6.cloudfront.net (CloudFront)
+  X-Amz-Cf-Pop: IAD89-P2
+  X-Amz-Cf-Id: m_q98uPOevgu-lUYzMQD4hzYy2f6W8XsMKHRQ5A07B5-icfaPDJnOg==
+  Age: 85949
+Location: /pub/openshift-v4/x86_64/clients/ocp/4.8.40/ [following]
+Spider mode enabled. Check if remote file exists.
+--2022-06-30 14:58:39--  https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.8.40/
+Connecting to mirror.openshift.com (mirror.openshift.com)|18.67.76.76|:443... connected.
+HTTP request sent, awaiting response... 
+  HTTP/1.1 200 OK
+  Content-Type: text/html
+  Content-Length: 23609
+  Connection: keep-alive
+  Server: CloudFront
+  Date: Thu, 30 Jun 2022 14:58:39 GMT
+  Cache-Control: max-age=0
+  X-Cache: LambdaGeneratedResponse from cloudfront
+  Via: 1.1 4e6e9c8ad6e40529a0e7659f2f4c5f28.cloudfront.net (CloudFront)
+  X-Amz-Cf-Pop: IAD89-P2
+  X-Amz-Cf-Id: BBsuadXMq1ADj48O9yrwTN-pl7UF1awfzTK3MQ0r7c-PLdU7A52N9w==
+Length: 23609 (23K) [text/html]
+Remote file exists and could contain further links,
+but recursion is disabled -- not retrieving.
+

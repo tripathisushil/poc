@@ -1,0 +1,16 @@
+{
+    "HostedZones": [
+        {
+            "Id": "/hostedzone/Z17M41GO6Q1F4M",
+            "Name": "bjswholesale.info.",
+            "CallerReference": "RISWorkflow-RD:dafbaae2-e550-4318-8185-0d9a0f99bdc7",
+            "Config": {
+                "Comment": "HostedZone created by Route53 Registrar",
+                "PrivateZone": false
+            },
+            "ResourceRecordSetCount": 2
+        }
+    ],
+    "IsTruncated": false,
+    "MaxItems": "100"
+}

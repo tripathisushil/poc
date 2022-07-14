@@ -1,0 +1,15 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    app.kubernetes.io/instance: ibm-cpd-spss-operator-catalog-subscription
+    app.kubernetes.io/managed-by: ibm-cpd-spss-operator
+    app.kubernetes.io/name: ibm-cpd-spss-operator-catalog-subscription
+  name: ibm-cpd-spss-operator-catalog-subscription
+  namespace: @CP4D_OPERATORS_NAMESPACE@
+spec:
+    channel: v1.0
+    installPlanApproval: @CP4D_INSTALL_PLAN_APPROVAL@
+    name: ibm-cpd-spss
+    source: @IBM_CLOUD_CPD_SPSS_CATALOG_SOURCE@
+    sourceNamespace: openshift-marketplace

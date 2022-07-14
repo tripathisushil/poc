@@ -1,0 +1,12 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  annotations:
+  name: ibm-cpd-ws-operator-catalog-subscription
+  namespace: @CP4D_OPERATORS_NAMESPACE@
+spec:
+  channel: v2.0
+  installPlanApproval: @CP4D_INSTALL_PLAN_APPROVAL@
+  name: ibm-cpd-wsl
+  source: @IBM_CLOUD_CPD_WS_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace

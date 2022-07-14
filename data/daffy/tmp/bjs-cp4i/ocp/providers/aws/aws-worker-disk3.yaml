@@ -1,0 +1,8 @@
+[
+  {
+    "DeviceName": "/dev/xvdg",
+    "Ebs": {
+      "DeleteOnTermination": true
+    }
+  }
+]

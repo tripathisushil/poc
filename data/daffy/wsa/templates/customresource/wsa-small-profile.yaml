@@ -1,0 +1,80 @@
+apiVersion: base.automation.ibm.com/v1beta1
+kind: AutomationBase
+metadata:
+  name: small
+  namespace: @WSA_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+  tls: {}
+  version: @AUTOBASE_VERSION@
+  kafka:
+    kafka:
+      config:
+        offsets.topic.replication.factor: 1
+        transaction.state.log.min.isr: 1
+        transaction.state.log.replication.factor: 1
+      replicas: 1
+      resources:
+        limits:
+          cpu: '1'
+          memory: 1Gi
+        requests:
+          cpu: '1'
+          memory: 1Gi
+      storage:
+        type: persistent-claim
+        size: 4Gi
+        class: @WSA_BLOCK_CLASS@
+    zookeeper:
+      replicas: 1
+      resources:
+        limits:
+          cpu: '1'
+          memory: 1Gi
+        requests:
+          cpu: '1'
+          memory: 1Gi
+      storage:
+        type: persistent-claim
+        size: 2Gi
+        class: @WSA_BLOCK_CLASS@
+---
+apiVersion: automation.websphere.ibm.com/v1
+kind: WebSphereAutomation
+metadata:
+   name: wsa
+   namespace: @WSA_INSTANCE_NAMESPACE@
+spec:
+  replicas: 1
+  dataStore:
+    storage:
+      class: @WSA_BLOCK_CLASS@
+    replicas: 1
+  runbookManager:
+    replicas: 1
+  license:
+    accept: true
+---
+apiVersion: automation.websphere.ibm.com/v1
+kind: WebSphereSecure
+metadata:
+  name: wsa-secure
+  namespace: @WSA_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+  replicas: 1
+---
+apiVersion: automation.websphere.ibm.com/v1
+kind: WebSphereHealth
+metadata:
+  name: wsa-health
+  namespace: @WSA_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+  fileStore:
+    storage:
+      class: @WSA_STORAGE_CLASS@
+  replicas: 1

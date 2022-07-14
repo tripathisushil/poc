@@ -1,0 +1,14 @@
+# General Purpose for Databases, 3 Replicas
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: portworx-db-gp3-sc
+parameters:
+  io_profile: "db_remote"
+  repl: "3"
+  priority_io: "high"
+  disable_io_profile_protection: "1"
+allowVolumeExpansion: true
+provisioner: kubernetes.io/portworx-volume
+reclaimPolicy: Retain
+volumeBindingMode: Immediate

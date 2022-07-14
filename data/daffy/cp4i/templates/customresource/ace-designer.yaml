@@ -1,0 +1,22 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: DesignerAuthoring
+metadata:
+  name: ace-design
+  namespace: @CP4I_NAMESPACE@
+spec:
+  couchdb:
+    storage:
+      size: 10Gi
+      type: persistent-claim
+      class: "@CP4I_BLOCK_CLASS@"
+  designerFlowsOperationMode: local
+  designerMappingAssist:
+    enabled: true
+    incrementalLearning:
+      schedule: Every 15 days
+  license:
+    accept: true
+    license: @ACE_LICENSE@
+    use: @CP4I_LICENSE_USE@
+  useCommonServices: true
+  version: "@ACE_VERSION@"

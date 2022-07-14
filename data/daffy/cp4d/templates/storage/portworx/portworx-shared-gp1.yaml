@@ -1,0 +1,13 @@
+#Shared gp high iops:
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: portworx-shared-gp1
+parameters:
+  priority_io: high
+  repl: "1"
+  sharedv4: "true"
+allowVolumeExpansion: true
+provisioner: kubernetes.io/portworx-volume
+reclaimPolicy: Retain
+volumeBindingMode: Immediate

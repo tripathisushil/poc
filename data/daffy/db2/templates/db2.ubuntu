@@ -1,0 +1,43 @@
+#!/bin/bash
+##########################################################
+### BEGIN INIT INFO
+# Provides:          db2
+# Required-Start:    $all
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: your description here
+### END INIT INFO
+##########################################################
+if [ "$EUID" -ne 0 ] ; then
+      echo "Please run as root!!!!!!"
+      exit 99
+fi
+DB2_INSTALL_PATH=/opt/ibm/db2/V11.1
+DB2_INSTANCE_OWNER=db2inst1
+rc=0
+case "$1" in
+
+  start)
+      su - ${DB2_INSTANCE_OWNER} -c ${DB2_INSTALL_PATH}/adm/db2start
+       ;;
+
+  stop)
+     su - ${DB2_INSTANCE_OWNER} -c ${DB2_INSTALL_PATH}/adm/db2stop
+       ;;
+
+  status)
+       ps -ef | grep -v grep | grep db2
+       ;;
+
+  restart)
+       /etc/init.d/db2 stop
+       /etc/init.d/db2 start
+       ;;
+
+   *)
+       echo $"Usage: $0 {start|stop|status|restart}"
+       rc=2
+esac
+
+exit $rc

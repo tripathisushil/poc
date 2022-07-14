@@ -1,0 +1,10 @@
+apiVersion: integration.ibm.com/v1beta2
+kind: OperationsDashboardServiceBinding
+metadata:
+  name: od-service-binding
+spec:
+  odNamespace: "@CP4I_NAMESPACE@"
+  odInstanceName: "tracing"
+  sourceInstanceName: "apic-min-gw"
+  sourcePodName: "apic-min-gw-0"
+  sourceSecretName: "icp4i-od-store-cred"

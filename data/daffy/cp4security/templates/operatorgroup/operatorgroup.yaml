@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1alpha2
+kind: OperatorGroup
+metadata:
+  name: operatorgroup
+  namespace: @CP4SEC_NAMESPACE@
+spec:
+  targetNamespaces:
+  -  @CP4SEC_NAMESPACE@

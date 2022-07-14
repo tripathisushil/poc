@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-cpd-scheduling-catalog-subscription
+  namespace: @CP4D_OPERATORS_NAMESPACE@    
+spec:
+  channel: @CP4D_IBM_CPD_SCHEDULING_OPERATOR_CHANNEL@
+  installPlanApproval: @CP4D_INSTALL_PLAN_APPROVAL@
+  name: ibm-cpd-scheduling-operator
+  source: @IBM_CLOUD_CPD_SCHEDULING_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace

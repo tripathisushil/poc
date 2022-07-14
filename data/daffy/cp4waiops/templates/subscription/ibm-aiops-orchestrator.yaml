@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-aiops-orchestrator
+  namespace: @CP4WAIOPS_NAMESPACE@
+spec:
+  channel: @CP4WAIOPS_SUBSCRIPTION_CHANNEL@
+  installPlanApproval: Automatic
+  name: ibm-aiops-orchestrator
+  source: @IBM_CLOUD_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace

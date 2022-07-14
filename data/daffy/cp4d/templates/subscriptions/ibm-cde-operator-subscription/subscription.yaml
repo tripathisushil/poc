@@ -1,0 +1,15 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    app.kubernetes.io/instance: ibm-cde-operator-subscription
+    app.kubernetes.io/managed-by: ibm-cde-operator
+    app.kubernetes.io/name: ibm-cde-operator-subscription
+  name: ibm-cpe-operator-subscription
+  namespace: @CP4D_OPERATORS_NAMESPACE@
+spec:
+  channel: @CP4D_IBM_CPD_COGNOS_OPERATOR_CHANNEL@
+  installPlanApproval:  @CP4D_INSTALL_PLAN_APPROVAL@
+  name: ibm-cde-operator
+  source: @IBM_CLOUD_CPD_COGNOS_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace

@@ -1,0 +1,12 @@
+[Unit]
+Description=DB2 Server
+Documentation=http://www.ibm.com
+
+[Service]
+Type=forking
+ExecStart=/etc/init.d/db2 start
+ExecStop=/etc/init.d/db2 stop
+ExecReload=/etc/init.d/db2 restart
+
+[Install]
+WantedBy = multi-user.target

@@ -1,0 +1,8 @@
+apiVersion: automation.websphere.ibm.com/v1
+kind: WebSphereSecure
+metadata:
+  name: wsa-health
+  namespace: @WSA_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true

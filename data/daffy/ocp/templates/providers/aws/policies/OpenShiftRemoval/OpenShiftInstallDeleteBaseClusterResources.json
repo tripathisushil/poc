@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DescribeAutoScalingGroups",
+                "ec2:DeleteNetworkInterface",
+                "ec2:DeleteVolume",
+                "elasticloadbalancing:DeleteTargetGroup",
+                "elasticloadbalancing:DescribeTargetGroups",
+                "iam:DeleteAccessKey",
+                "iam:DeleteUser",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListInstanceProfiles",
+                "iam:ListRolePolicies",
+                "iam:ListUserPolicies",
+                "s3:DeleteObject",
+                "s3:ListBucketVersions",
+                "tag:GetResources"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

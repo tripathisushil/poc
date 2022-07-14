@@ -1,0 +1,15 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    app.kubernetes.io/instance: ibm-cpd-wml-operator-subscription
+    app.kubernetes.io/managed-by: ibm-cpd-wml-operator
+    app.kubernetes.io/name: ibm-cpd-wml-operator-subscription
+  name: ibm-cpd-wml-operator-subscription
+  namespace: @CP4D_OPERATORS_NAMESPACE@
+spec:
+    channel: v1.1
+    installPlanApproval:  @CP4D_INSTALL_PLAN_APPROVAL@
+    name: ibm-cpd-wml-operator
+    source: @IBM_CLOUD_CPD_WML_CATALOG_SOURCE@
+    sourceNamespace: openshift-marketplace

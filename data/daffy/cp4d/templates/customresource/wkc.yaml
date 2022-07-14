@@ -1,0 +1,14 @@
+apiVersion: wkc.cpd.ibm.com/v1beta1
+kind: WKC
+metadata:
+  name: wkc-cr
+  namespace: @CP4D_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+    license: Enterprise
+  version: @CP4D_VERSION@
+  storageVendor: @CP4D_STORAGE_VENDOR@
+  storageClass: @CP4D_STORAGE_CLASS@
+  wkc_db2u_set_kernel_params: @CP4D_WKC_DB2U_SET_KERNAL_PARMS@
+  iis_db2u_set_kernel_params: @CP4D_IIS_DB2U_SET_KERNAL_PARMS@

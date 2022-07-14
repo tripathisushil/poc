@@ -1,0 +1,8 @@
+{
+    "id": "worker1",
+    "name": "worker1",
+    "profile": "worker",
+    "selector": {
+      "mac": "52:54:00:02:87:01"
+    }
+}

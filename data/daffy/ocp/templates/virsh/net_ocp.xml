@@ -1,0 +1,8 @@
+<network>
+  <name>ocp</name>
+  <forward mode='nat'/>
+  <bridge name='br-ocp' stp='on' delay='0'/>
+  <dns enable="no"/>
+  <ip address='@OCP_INSTALL_GATEWAY@' netmask='255.255.255.0'>
+  </ip>
+</network>

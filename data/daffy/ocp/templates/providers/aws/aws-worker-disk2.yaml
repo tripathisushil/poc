@@ -1,0 +1,8 @@
+[
+  {
+    "DeviceName": "@IBM_OPENSHIFT_LOCAL_STORAGE_DEVICE_PATH@",
+    "Ebs": {
+      "DeleteOnTermination": true
+    }
+  }
+]

@@ -1,0 +1,15 @@
+# Watson Assitant - This was previously named portworx-assitant 
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: portworx-watson-assistant-sc
+parameters:
+   repl: "3"
+   priority_io: "high"
+   io_profile: "db_remote"
+   block_size: "64k"
+   disable_io_profile_protection: "1"
+allowVolumeExpansion: true
+provisioner: kubernetes.io/portworx-volume
+reclaimPolicy: Retain
+volumeBindingMode: Immediate

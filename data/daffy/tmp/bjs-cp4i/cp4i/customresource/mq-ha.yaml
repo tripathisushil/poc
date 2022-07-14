@@ -1,0 +1,34 @@
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  name: mq-ha
+  namespace: cp4i
+spec:
+  securityContext:
+    initVolumeAsRoot: false
+    supplementalGroups:
+      - 99
+  license:
+    accept: true
+    license: L-RJON-C7QG3S
+    use: Production
+  queueManager:
+    availability:
+      type: NativeHA
+    name: CUSTOM
+    storage:
+      defaultClass: "ocs-storagecluster-ceph-rbd"
+      queueManager:
+        type: persistent-claim
+        class: "ocs-storagecluster-ceph-rbd"
+      persistedData:
+        enabled: true
+        class: "ocs-storagecluster-ceph-rbd"
+        deleteClaim: true
+        type: persistent-claim
+  version: 9.2.4.0-r1
+  web:
+    enabled: true
+  tracing:
+    enabled: true
+    namespace: cp4i

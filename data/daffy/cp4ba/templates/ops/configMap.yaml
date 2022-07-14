@@ -1,0 +1,22 @@
+############################################################
+#Author           : Gerry Baird
+#Author email     : gerry.baird@uk.ibm.com
+#Original Date    : 2022-05-10
+#Initial Version  : v2022-05-23
+############################################################
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ads-ml-service-model-conf
+  namespace: @CP4BA_OPS_ML_NAMESPACE@
+data:
+  preload-conf.yaml: |
+    models:
+        #  - examples/model_training_and_deployment/classification/miniloan_linear_svc
+        #  - examples/model_training_and_deployment/classification/miniloan_xgb
+        #  - examples/model_training_and_deployment/regression/miniloan_rfr
+        #  - examples/model_training_and_deployment/classification_with_probabilities/miniloan_rfc
+        #  - examples/model_training_and_deployment/ads-samples
+        #  - examples/model_training_and_deployment/pipeline
+        #  - examples/model_training_and_deployment/classification/iris_svc
+        #  - examples/model_training_and_deployment/custom_predictor

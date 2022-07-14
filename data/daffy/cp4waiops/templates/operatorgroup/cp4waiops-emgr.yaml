@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: cp4waiops-operator-group
+  namespace: @CP4WAIOPS_EMGR_NAMESPACE@
+spec:
+  targetNamespaces:
+    - @CP4WAIOPS_EMGR_NAMESPACE@

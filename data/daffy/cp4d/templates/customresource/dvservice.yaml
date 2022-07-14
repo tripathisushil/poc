@@ -1,0 +1,11 @@
+apiVersion: db2u.databases.ibm.com/v1
+kind: DvService
+metadata:
+  name: dv-service
+  namespace: @CP4D_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+    license: Enterprise
+  version: @CP4D_DV_VERSION@
+  size: "small"

@@ -1,0 +1,34 @@
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  name: mq-ha
+  namespace: @CP4I_NAMESPACE@
+spec:
+  securityContext:
+    initVolumeAsRoot: false
+    supplementalGroups:
+      - 99
+  license:
+    accept: true
+    license: @MQ_LICENSE@
+    use: Production
+  queueManager:
+    availability:
+      type: NativeHA
+    name: CUSTOM
+    storage:
+      defaultClass: "@CP4I_BLOCK_CLASS@"
+      queueManager:
+        type: persistent-claim
+        class: "@CP4I_BLOCK_CLASS@"
+      persistedData:
+        enabled: true
+        class: "@CP4I_BLOCK_CLASS@"
+        deleteClaim: true
+        type: persistent-claim
+  version: @MQ_VERSION@
+  web:
+    enabled: true
+  tracing:
+    enabled: @TRACING_ENABLED@
+    namespace: @CP4I_NAMESPACE@

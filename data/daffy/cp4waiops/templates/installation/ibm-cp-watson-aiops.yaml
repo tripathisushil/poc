@@ -1,0 +1,21 @@
+apiVersion: orchestrator.aiops.ibm.com/v1alpha1
+kind: Installation
+metadata:
+  name: ibm-cp-watson-aiops
+  namespace: @CP4WAIOPS_NAMESPACE@
+spec:
+  license:
+    accept: true
+  pakModules:
+  - name: aiopsFoundation
+    enabled: true
+  - name: applicationManager
+    enabled: true
+  - name: aiManager
+    enabled: true
+  - name: connection
+    enabled: false
+  size: small
+  storageClass: @CP4WAIOPS_STORAGE_CLASS@
+  storageClassLargeBlock: @CP4WAIOPS_BLOCK_STORAGE_CLASS@
+  version: @CP4WAIOPS_VERSION@

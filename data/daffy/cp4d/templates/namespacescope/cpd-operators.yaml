@@ -1,0 +1,11 @@
+apiVersion: operator.ibm.com/v1
+kind: NamespaceScope
+metadata:
+  name: @CP4D_OPERATORS_NAMESPACE@
+  namespace: @CP4D_OPERATORS_NAMESPACE@   # (Default) Replace with the Cloud Pak for Data platform operator project name
+spec:
+  csvInjector:                            # This setting is required for some services. Do not delete this line if you specified it when you created operator subscriptions.
+    enable: true                          # This setting is required for some services. Do not delete this line if you specified it when you created operator subscriptions.
+  namespaceMembers:
+  - @CP4D_OPERATORS_NAMESPACE@            # (Default) Replace with the Cloud Pak for Data platform operator project name
+  - @CP4D_INSTANCE_NAMESPACE@             # Replace with the project where you will install Cloud Pak for Data

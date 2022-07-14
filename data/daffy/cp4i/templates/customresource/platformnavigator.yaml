@@ -1,0 +1,16 @@
+apiVersion: integration.ibm.com/v1beta1
+kind: PlatformNavigator
+metadata:
+    name: integration-@PROJECT_NAME@
+    namespace:  @CP4I_NAMESPACE@
+spec:
+    license:
+        accept: true
+        license: @CP4I_LICENSE@
+    requestIbmServices:
+        licensing: false
+    mqDashboard: true
+    replicas: 1
+    storage:
+        class: "@CP4I_STORAGE_CLASS@"
+    version: @CP4I_VERSION@

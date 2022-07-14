@@ -1,0 +1,27 @@
+apiVersion: v1
+baseDomain: @BASE_DOMAIN@
+proxy:
+  httpProxy: @OCP_PROXY_HTTP_PROXY@
+  httpsProxy: @OCP_PROXY_HTTPS_PROXY@
+  noProxy: @OCP_PROXY_NO_PROXY@
+compute:
+- hyperthreading: Enabled
+  name: worker
+  # must be 0 for user provisioned infra as cluster will not create these workers
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: @CLUSTER_NAME@
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  none: {}
+fips: @OCP_FIPS@

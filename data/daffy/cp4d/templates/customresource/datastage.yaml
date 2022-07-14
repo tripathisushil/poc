@@ -1,0 +1,11 @@
+apiVersion: ds.cpd.ibm.com/v1alpha1
+kind: DataStage
+metadata:
+  name: datastage
+  namespace: @CP4D_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+    license: Enterprise
+  version: @CP4D_VERSION@
+  storageClass: @CP4D_STORAGE_CLASS@

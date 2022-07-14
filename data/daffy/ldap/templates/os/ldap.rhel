@@ -1,0 +1,47 @@
+#!/bin/sh
+##########################################################
+# chkconfig: 2345 81 10
+# START BLOCK
+# description: Bring up/down ldap
+# author:  Kyle Dawson (Kyle.Dawson@us.ibm.com)
+# END BLOCK
+##########################################################
+if [ "$EUID" -ne 0 ] ; then
+      echo "Please run as root!!!!!!"
+      exit 99
+fi
+
+
+INSTALL_PATH=@IDS_HOME@
+INSTANCE_OWNER=@LDAP_INSTANCE_USER_ID@
+. /home/${INSTANCE_OWNER}/.profile
+rc=0
+
+
+case "$1" in
+
+  start)
+      ${INSTALL_PATH}/sbin/ibmslapd -I ${INSTANCE_OWNER}
+      ${INSTALL_PATH}/sbin/ibmdiradm -I ${INSTANCE_OWNER}
+       ;;
+
+  stop)
+      ${INSTALL_PATH}/sbin/ibmslapd -I ${INSTANCE_OWNER} -k
+      ${INSTALL_PATH}/sbin/ibmdiradm -I ${INSTANCE_OWNER} -k
+       ;;
+
+  status)
+       ps -ef | grep -v grep | grep -v status | grep ldap
+       ;;
+
+  restart)
+       /etc/init.d/ldap stop
+       /etc/init.d/ldap start
+       ;;
+
+   *)
+       echo $"Usage: $0 {start|stop|status|restart}"
+       rc=2
+esac
+
+exit $rc

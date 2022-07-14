@@ -1,0 +1,23 @@
+apiVersion: local.storage.openshift.io/v1
+kind: LocalVolume
+metadata:
+  name: local-disks
+  namespace: openshift-local-storage
+spec:
+  tolerations:
+    - key: "node.ocs.openshift.io/storage"
+      value: "true"
+      effect: NoSchedule
+  storageClassDevices:
+    - devicePaths:
+        - /dev/xvdg
+      fsType: ext4
+      storageClassName: localblock-sc
+      volumeMode: Block
+  nodeSelector:
+    nodeSelectorTerms:
+    - matchExpressions:
+        - key: cluster.ocs.openshift.io/openshift-storage
+          operator: In
+          values:
+          - ''

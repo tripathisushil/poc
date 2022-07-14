@@ -1,0 +1,4 @@
+Fix List
+#########################################################################
+Component   Date         Applies To     Number    Details
+OCP         2021-12-16   v2021-12-01    0001      Fix nodes that were labeled wrong and did not have taint for OpenShift Storage.

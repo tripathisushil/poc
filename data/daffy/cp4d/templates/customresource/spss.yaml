@@ -1,0 +1,15 @@
+apiVersion: spssmodeler.cpd.ibm.com/v1
+kind: Spss
+metadata:
+  name: spss
+  namespace: @CP4D_INSTANCE_NAMESPACE@
+  labels:
+    app.kubernetes.io/instance: ibm-cpd-spss-operator
+    app.kubernetes.io/managed-by: ibm-cpd-spss-operator
+    app.kubernetes.io/name: ibm-cpd-spss-operator
+spec:
+  license:
+    accept: true
+    license: Enterprise
+  storageClass: @CP4D_STORAGE_CLASS@
+  version: @CP4D_VERSION@

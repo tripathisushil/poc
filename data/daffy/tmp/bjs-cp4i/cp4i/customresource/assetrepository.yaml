@@ -1,0 +1,18 @@
+apiVersion: integration.ibm.com/v1beta1
+kind: AssetRepository
+metadata:
+    name: assetrepo
+    namespace:  cp4i
+spec:
+    designerAIFeatures:
+      enabled: true
+    license:
+      accept: true
+      license: L-PNAA-C68928
+    replicas: 1
+    storage:
+      assetDataVolume:
+        class: "ocs-storagecluster-cephfs"
+      couchVolume:
+        class: "ocs-storagecluster-ceph-rbd"
+    version: 2021.4.1

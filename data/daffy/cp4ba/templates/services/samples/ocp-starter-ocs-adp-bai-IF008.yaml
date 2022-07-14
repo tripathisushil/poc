@@ -1,0 +1,169 @@
+############################################################
+#Author           : Kyle Dawson
+#Author email     : Kyle.Dawson@us.ibm.com
+#Original Date    : 2022-05-07
+#Initial Version  : v2022-05-23
+############################################################
+apiVersion: icp4a.ibm.com/v1
+kind: ICP4ACluster
+metadata:
+  name: icp4adeploy
+  labels:
+    app.kubernetes.io/instance: ibm-dba
+    app.kubernetes.io/managed-by: ibm-dba
+    app.kubernetes.io/name: ibm-dba
+    release: 21.0.3
+spec:
+  appVersion: 21.0.3
+  ibm_license: accept
+  shared_configuration:
+    images:
+      keytool_job_container:
+        repository: cp.icr.io/cp/cp4a/ums/dba-keytool-jobcontainer
+        tag: 21.0.3-IF008
+      dbcompatibility_init_container:
+        repository: cp.icr.io/cp/cp4a/aae/dba-dbcompatibility-initcontainer
+        tag: 21.0.3-IF008
+      keytool_init_container:
+        repository: cp.icr.io/cp/cp4a/ums/dba-keytool-initcontainer
+        tag: 21.0.3-IF008
+      umsregistration_initjob:
+        repository: cp.icr.io/cp/cp4a/aae/dba-umsregistration-initjob
+        tag: 21.0.3-IF008
+      openldap:
+        repository: cp.icr.io/cp/cp4a/demo/openldap
+        tag: 1.5.0
+      gitea:
+        repository: cp.icr.io/cp/cp4a/demo/gitea
+        tag: 1.15.8
+    sc_deployment_fncm_license: non-production
+    sc_deployment_baw_license: non-production
+    sc_deployment_license: non-production
+    sc_deployment_patterns: "foundation,document_processing"
+    sc_optional_components: "cmis,css,document_processing_designer,tm"
+    sc_deployment_type: "Starter"
+    sc_deployment_platform: "OCP"
+    sc_image_repository: cp.icr.io
+    sc_ingress_enable: false
+    trusted_certificate_list: []
+    storage_configuration:
+      sc_dynamic_storage_classname: ocs-storagecluster-cephfs
+      sc_block_storage_classname: ocs-storagecluster-cephfs
+      sc_slow_file_storage_classname:
+      sc_medium_file_storage_classname:
+      sc_fast_file_storage_classname:
+    sc_run_as_user:
+    sc_cpe_limited_storage: true
+    image_pull_secrets:
+    - admin.registrykey
+  ########################################################################
+  ########   IBM Business Automation Navigator configuration      ########
+  ########################################################################
+  navigator_configuration:
+    image:
+      repository: cp.icr.io/cp/cp4a/ban/navigator
+      tag: ga-3011-icn-la301
+  ########################################################################
+  ########      IBM Resource Registry configuration               ########
+  ########################################################################
+  resource_registry_configuration:
+    images:
+      resource_registry:
+        repository: cp.icr.io/cp/cp4a/aae/dba-etcd
+        tag: 21.0.3-IF008
+  ########################################################################
+  ########      IBM Business Automation Studio configuration      ########
+  ########################################################################
+  bastudio_configuration:
+    images:
+      bastudio:
+        repository: cp.icr.io/cp/cp4a/bas/bastudio
+        tag: 21.0.3-IF008
+    playback_server:
+      images:
+        db_job:
+          repository: cp.icr.io/cp/cp4a/bas/solution-server-helmjob-db
+          tag: 21.0.3-IF008
+        solution_server:
+          repository: cp.icr.io/cp/cp4a/bas/solution-server
+          tag: 21.0.3-IF008
+  ########################################################################
+  ###### IBM Business Automation Application server  configurations    ###
+  ###### This section contains the configurations App Engine Server    ###
+  ###### patterns include: application, workflow, workstreams,         ###
+  ######   workflow-workstreams or document_processing                 ###
+  ########################################################################
+  application_engine_configuration:
+  - name: workspace
+    images:
+      db_job:
+        repository: cp.icr.io/cp/cp4a/aae/solution-server-helmjob-db
+        tag: 21.0.3-IF008
+      solution_server:
+        repository: cp.icr.io/cp/cp4a/aae/solution-server
+        tag: 21.0.3-IF008
+  ########################################################################
+  ########      IBM FileNet Content Manager configuration         ########
+  ########################################################################
+  ecm_configuration:
+    cpe:
+      image:
+        repository: cp.icr.io/cp/cp4a/fncm/cpe
+        tag: ga-558-p8cpe-la101
+    css:
+      image:
+        repository: cp.icr.io/cp/cp4a/fncm/css
+        tag: ga-558-p8css-la101
+    graphql:
+      image:
+        repository: cp.icr.io/cp/cp4a/fncm/graphql
+        tag: ga-558-p8cgql-la101
+    cmis:
+      image:
+        repository: cp.icr.io/cp/cp4a/fncm/cmis
+        tag: ga-306-cmis-la106
+    tm:
+      image:
+        repository: cp.icr.io/cp/cp4a/fncm/taskmgr
+        tag: ga-3011-tm-la301
+    ########################################################################
+    ###########   IBM Automation Document Processing configuration  ########
+    ########################################################################
+    document_processing:
+      cds:
+        image:
+          repository: cp.icr.io/cp/cp4a/iadp/cds
+          tag: 21.0.3-IF008
+      cdra:
+        image:
+          repository: cp.icr.io/cp/cp4a/iadp/cdra
+          tag: 21.0.3-IF008
+      cpds:
+        image:
+          repository: cp.icr.io/cp/cp4a/iadp/cpds
+          tag: 21.0.3-IF008
+      viewone:
+        image:
+          repository: cp.icr.io/cp/cp4a/iadp/viewone
+          tag: 21.0.3-IF008
+      gitgateway:
+        image:
+          repository: cp.icr.io/cp/cp4a/iadp/gitgateway
+          tag: 21.0.3-IF008
+      mongo:
+        image:
+          repository: cp.icr.io/cp/cp4a/iadp/mongo
+          tag: 4.2.17
+  ############################################################################
+  ########   IBM Business Automation Content Analyzer configuration   ########
+  ############################################################################
+  ca_configuration:
+    global:
+      image:
+        repository: cp.icr.io/cp/cp4a/iadp
+        tag: 21.0.3-IF008
+    # Deep Learning configuration
+    deeplearning:
+      gpu_enabled: false
+      nodelabel_key:
+      nodelabel_value:

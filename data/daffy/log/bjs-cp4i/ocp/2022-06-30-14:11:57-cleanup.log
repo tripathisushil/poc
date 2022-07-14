@@ -1,0 +1,62 @@
+##########################################################################################################
+                              Running daffy cleanup process v2022-05-23a
+##########################################################################################################
+Start time : Thu Jun 30 14:11:57 UTC 2022
+
+[36mChecking OS before continuing on
+################################################################(B[m
+Linux is being used
+
+
+[36mCurrent T-Shirt Sizing Info
+################################################################(B[m
+
+
+[36mPrechecks
+################################################################(B[m
+
+[36mPrepare host (LOG -> /data/daffy/log/bjs-cp4i/ocp/apt-get.log )
+################################################################(B[m
+[36mPASSED (B[m Your path has /usr/local/bin
+(B[mrunning update  - apt-get -y update
+(B[mrunning upgrade - apt-get -y upgrade
+(B[mrunning install - nmon net-tools curl nano vim tree wget unzip jq expect apache2-utils dnsutils openssh-client
+(B[m
+
+
+[36mValidation of Base Values
+################################################################(B[m
+[36mPASSED (B[m Valid DAFFY_DEPLOYMENT_TYPE of POC
+[36mPASSED (B[m Valid DAFFY_ISC_NUMBER of 0063h00000IPfK5AAL
+[36mPASSED (B[m Valid DAFFY_CUSTOMER_NAME of BJ's Wholesale Club
+[36mPASSED (B[m Valid OCP_INSTALL_TYPE of aws-ipi for ocp
+
+[36mValidate Cluster Name
+################################################################(B[m
+[36mPASSED (B[m bjs-cp4i is a valid cluster name
+
+
+[36mValidate Base Domain (valid FQDN syntax)
+################################################################(B[m
+[36mPASSED (B[m ocp.bjswholesale.info is a valid FQDN String
+
+
+[36mValidate Install Type Settings
+################################################################(B[m
+
+[36mInstall AWS command line tool (LOG -> /data/daffy/log/bjs-cp4i/aws-cli-install.log )
+################################################################(B[m
+[36mPASSED (B[m aws-cli already installed.
+AWS Default Region = us-east-1
+
+
+[36mValidate AWS Account Permissions
+################################################################(B[m
+[36mPASSED (B[m AdministratorAccess has been verified (arn:aws:iam::aws:policy/AdministratorAccess)
+
+
+All prechecks passed, lets get to work.
+
+
+[31mCleanup VM Systems
+################################################################(B[m

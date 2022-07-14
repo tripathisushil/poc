@@ -1,0 +1,212 @@
+############################################################
+#Author           : Kyle Dawson
+#Author email     : Kyle.Dawson@us.ibm.com
+#Original Date    : 2022-01-11
+#Initial Version  : v2022-02-15
+############################################################
+apiVersion: icp4a.ibm.com/v1
+kind: ICP4ACluster
+metadata:
+  name: @CP4BA_DEPLOYMENT_NAME@
+  labels:
+    app.kubernetes.io/instance: ibm-dba
+    app.kubernetes.io/managed-by: ibm-dba
+    app.kubernetes.io/name: ibm-dba
+    openshift.ibm/builtBy: @PROJECT_NAME@
+    @PROJECT_NAME@.ibm/buildDate: @CURRENT_DATE_TIME@
+    @PROJECT_NAME@.ibm/buildUser: @DAFFY_UNIQUE_ID_TEMP@
+    @PROJECT_NAME@.ibm/buildVersion: @DAFFY_VERSION@
+    release: @CP4BA_VERSION@
+spec:
+  debug: @CRD_DEBUG@
+  no_log: @CRD_NO_LOG@
+  appVersion: @CP4BA_VERSION@
+  ibm_license: accept
+  olm_ibm_license: true
+  shared_configuration:
+    debug: @CRD_DEBUG@
+    no_log: @CRD_NO_LOG@
+    images:
+      keytool_job_container:
+        repository: @CP_REGISTRY@/cp/cp4a/ums/dba-keytool-jobcontainer
+        tag: @CP4BA_KEYTOOL_JOB_CONTAINER_VERSION@
+      dbcompatibility_init_container:
+        repository: @CP_REGISTRY@/cp/cp4a/aae/dba-dbcompatibility-initcontainer
+        tag: @CP4BA_DBCOMPATIBILITY_INIT_CONTAINER_VERSION@
+      keytool_init_container:
+        repository: @CP_REGISTRY@/cp/cp4a/ums/dba-keytool-initcontainer
+        tag: @CP4BA_KEYTOOL_INIT_CONTAINER_VERSION@
+      umsregistration_initjob:
+        repository: @CP_REGISTRY@/cp/cp4a/aae/dba-umsregistration-initjob
+        tag: @CP4BA_UMSREGISTRATION_INITJOB_VERSION@
+      openldap:
+        repository: @CP_REGISTRY@/cp/cp4a/demo/openldap
+        tag: @CP4BA_OPENLDAP_VERSION@
+      busybox:
+        repository: @CP_REGISTRY@/cp/cp4a/demo/busybox
+        tag: @CP4BA_BUSYBOX_VERSION@
+      phpldapadmin:
+        repository: @CP_REGISTRY@/cp/cp4a/demo/phpldapadmin
+        tag: @CP4BA_PHP_LDAP_ADMIN_VERSION@
+    sc_deployment_fncm_license: @CP4BA_DEPLOYMENT_LICENSE@
+    sc_deployment_baw_license: @CP4BA_DEPLOYMENT_LICENSE@
+    sc_deployment_license: @CP4BA_DEPLOYMENT_LICENSE@
+    sc_deployment_patterns: "foundation,content"
+    sc_optional_components: "cmis,css,ier,tm,bai"
+    sc_deployment_type: "Starter"
+    sc_deployment_platform: "@CP_DEPLOYMENT_PLATFORM@"
+    sc_image_repository: @CP_REGISTRY@
+    sc_ingress_enable: false
+    trusted_certificate_list: []
+    storage_configuration:
+      sc_dynamic_storage_classname: @CP4BA_AUTO_STORAGE_CLASS_OCP@
+      sc_block_storage_classname: @CP4BA_AUTO_STORAGE_CLASS_OCP_BLOCK@
+      sc_slow_file_storage_classname: @CP4BA_AUTO_STORAGE_CLASS_OCP_SLOW@
+      sc_medium_file_storage_classname: @CP4BA_AUTO_STORAGE_CLASS_OCP_MEDIUM@
+      sc_fast_file_storage_classname: @CP4BA_AUTO_STORAGE_CLASS_OCP_FAST@
+    sc_run_as_user:
+    sc_cpe_limited_storage: false
+    image_pull_secrets:
+    - admin.registrykey
+  ########################################################################
+  ########   IBM Business Automation Navigator configuration      ########
+  ########################################################################
+  navigator_configuration:
+    image:
+      repository: @CP_REGISTRY@/cp/cp4a/ban/navigator
+      tag: @CP4BA_BAN_NAVIGATOR_VERSION@
+  ########################################################################
+  ########      IBM Resource Registry configuration               ########
+  ########################################################################
+  resource_registry_configuration:
+    images:
+      resource_registry:
+        repository: @CP_REGISTRY@/cp/cp4a/aae/dba-etcd
+        tag: @CP4BA_RESOURCE_REGISTRY_CONFIGURATION_VERSION@
+  ########################################################################
+  ######## IBM Filenet Enterprise Contnet Manangment configuration #######
+  ########################################################################
+  #https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=parameters-content-platform-engine
+  ecm_configuration:
+    cpe:
+      image:
+        repository: @CP_REGISTRY@/cp/cp4a/fncm/cpe
+        tag: @CP4BA_ECM_CPE_VERSION@
+      arch:
+        amd64: "3 - Most preferred"
+      replica_count: @CP4BA_DEPLOYMENT_STARTER_CPE_REPLICA_COUNT@
+      resources:
+        requests:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_CPE_REQUEST_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_CPE_REQUEST_MEMORY@
+        limits:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_CPE_LIMITS_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_CPE_LIMITS_MEMORY@
+      auto_scaling:
+        enabled: @CP4BA_DEPLOYMENT_STARTER_CPE_AUTO_SCALING_ENABLED@
+        max_replicas: @CP4BA_DEPLOYMENT_STARTER_CPE_AUTO_SCALING_MAX_REPLICAS@
+        min_replicas: @CP4BA_DEPLOYMENT_STARTER_CPE_AUTO_SCALING_MIN_REPLICAS@
+        target_cpu_utilization_percentage: @CP4BA_DEPLOYMENT_STARTER_CPE_AUTO_SCALING_TARGET_CPU_UTIL_PERCENT@
+      monitor_enabled: false
+      logging_enabled: false
+    graphql:
+      image:
+        repository: @CP_REGISTRY@/cp/cp4a/fncm/graphql
+        tag: @CP4BA_ECM_GRAPHQL_VERSION@
+      arch:
+        amd64: "3 - Most preferred"
+      replica_count: @CP4BA_DEPLOYMENT_STARTER_GRAPHQL_REPLICA_COUNT@
+      resources:
+        requests:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_GRAPHQL_REQUEST_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_GRAPHQL_REQUEST_MEMORY@
+        limits:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_GRAPHQL_LIMITS_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_GRAPHQL_LIMITS_MEMORY@
+      auto_scaling:
+        enabled: @CP4BA_DEPLOYMENT_STARTER_GRAPHQL_AUTO_SCALING_ENABLED@
+        max_replicas: @CP4BA_DEPLOYMENT_STARTER_GRAPHQL_AUTO_SCALING_MAX_REPLICAS@
+        min_replicas: @CP4BA_DEPLOYMENT_STARTER_GRAPHQL_AUTO_SCALING_MIN_REPLICAS@
+        target_cpu_utilization_percentage: @CP4BA_DEPLOYMENT_STARTER_GRAPHQL_AUTO_SCALING_TARGET_CPU_UTIL_PERCENT@
+      monitor_enabled: false
+      logging_enabled: false
+    css:
+      image:
+        repository: @CP_REGISTRY@/cp/cp4a/fncm/css
+        tag: @CP4BA_ECM_CSS_VERSION@
+      arch:
+        amd64: "3 - Most preferred"
+      replica_count: @CP4BA_DEPLOYMENT_STARTER_CSS_REPLICA_COUNT@
+      resources:
+        requests:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_CSS_REQUEST_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_CSS_REQUEST_MEMORY@
+        limits:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_CSS_LIMITS_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_CSS_LIMITS_MEMORY@
+      monitor_enabled: false
+      logging_enabled: false
+    cmis:
+      image:
+        repository: @CP_REGISTRY@/cp/cp4a/fncm/cmis
+        tag: @CP4BA_ECM_CMIS_VERSION@
+      arch:
+        amd64: "3 - Most preferred"
+      replica_count: @CP4BA_DEPLOYMENT_STARTER_CMIS_REPLICA_COUNT@
+      resources:
+        requests:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_CMIS_REQUEST_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_CMIS_REQUEST_MEMORY@
+        limits:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_CMIS_LIMITS_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_CMIS_LIMITS_MEMORY@
+      auto_scaling:
+        enabled: @CP4BA_DEPLOYMENT_STARTER_CMIS_AUTO_SCALING_ENABLED@
+        max_replicas: @CP4BA_DEPLOYMENT_STARTER_CMIS_AUTO_SCALING_MAX_REPLICAS@
+        min_replicas: @CP4BA_DEPLOYMENT_STARTER_CMIS_AUTO_SCALING_MIN_REPLICAS@
+        target_cpu_utilization_percentage: @CP4BA_DEPLOYMENT_STARTER_CMIS_AUTO_SCALING_TARGET_CPU_UTIL_PERCENT@
+      monitor_enabled: false
+      logging_enabled: false
+    tm:
+      image:
+        repository: @CP_REGISTRY@/cp/cp4a/fncm/taskmgr
+        tag: @CP4BA_ECM_TM_VERSION@
+      arch:
+        amd64: "3 - Most preferred"
+      replica_count: @CP4BA_DEPLOYMENT_STARTER_TM_REPLICA_COUNT@
+      resources:
+        requests:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_TM_REQUEST_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_TM_REQUEST_MEMORY@
+        limits:
+          cpu: @CP4BA_DEPLOYMENT_STARTER_TM_LIMITS_CPU@
+          memory: @CP4BA_DEPLOYMENT_STARTER_TM_LIMITS_MEMORY@
+      auto_scaling:
+        enabled: @CP4BA_DEPLOYMENT_STARTER_TM_AUTO_SCALING_ENABLED@
+        max_replicas: @CP4BA_DEPLOYMENT_STARTER_TM_AUTO_SCALING_MAX_REPLICAS@
+        min_replicas: @CP4BA_DEPLOYMENT_STARTER_TM_AUTO_SCALING_MIN_REPLICAS@
+        target_cpu_utilization_percentage: @CP4BA_DEPLOYMENT_STARTER_TM_AUTO_SCALING_TARGET_CPU_UTIL_PERCENT@
+      monitor_enabled: false
+      logging_enabled: false
+########################################################################
+########   IBM Enterprise Records configuration                 ########
+########################################################################
+  ier_configuration:
+    image:
+      repository: @CP_REGISTRY@/cp/cp4a/ier/ier
+      tag: @CP4BA_ECM_IER_VERSION@
+########################################################################
+########             IBM Content Collector for SAP              ########
+########################################################################
+  #iccsap_configuration:
+  #  image:
+  #    repository: @CP_REGISTRY@/cp/cp4a/iccsap/iccsap
+  #    tag: @CP4BA_ECM_ICCSAP_VERSION@
+########################################################################
+########      IBM Business Automation Insights configuration    ########
+########################################################################
+  bai_configuration:
+    image_credentials:
+      registry: @CP_REGISTRY@/cp/cp4a
+    business_performance_center:
+      all_users_access: true

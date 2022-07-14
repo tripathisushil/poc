@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DeleteDhcpOptions",
+                "ec2:DeleteInternetGateway",
+                "ec2:DeleteNatGateway",
+                "ec2:DeleteRoute",
+                "ec2:DeleteRouteTable",
+                "ec2:DeleteSubnet",
+                "ec2:DeleteVpc",
+                "ec2:DeleteVpcEndpoints",
+                "ec2:DetachInternetGateway",
+                "ec2:DisassociateRouteTable",
+                "ec2:ReleaseAddress",
+                "ec2:ReplaceRouteTableAssociation",
+                "tag:UntagResources"
+
+            ],
+            "Resource": "*"
+        }
+    ]
+}

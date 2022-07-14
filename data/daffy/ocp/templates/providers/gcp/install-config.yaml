@@ -1,0 +1,49 @@
+apiVersion: v1
+baseDomain: @BASE_DOMAIN@
+credentialsMode: @GCP_CREDENTIALS_MODE@
+proxy:
+  httpProxy: @OCP_PROXY_HTTP_PROXY@
+  httpsProxy: @OCP_PROXY_HTTPS_PROXY@
+  noProxy: @OCP_PROXY_NO_PROXY@
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  replicas: @VM_NUMBER_OF_WORKERS@
+  platform:
+    gcp:
+      type:  @GCP_MACHINE_TYPE_WORKER@
+      zones:
+      osDisk:
+        diskSizeGB: @GCP_VM_WORKER_DISK1@
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    gcp:
+      type: @GCP_MACHINE_TYPE_MASTER@
+      zones:
+      osDisk:
+        diskSizeGB: @GCP_VM_MASTER_DISK1@
+  replicas: @VM_NUMBER_OF_MASTERS@
+metadata:
+  name: @CLUSTER_NAME@
+networking:
+  clusterNetwork:
+  - cidr: @GCP_NETWORKING_CLUSTER_NETWORK_CIDR@
+    hostPrefix: @GCP_NETWORKING_CLUSTER_NETWORK_HOST_PREFIX@
+  machineNetwork:
+  - cidr: @GCP_NETWORKING_MACHINE_NETWORK_CIDR@
+  networkType: @GCP_NETWORKING_MACHINE_NETWORK@
+  serviceNetwork:
+  - @GCP_NETWORKING_SERVICE_NETWORK@
+platform:
+  gcp:
+    projectID: @GCP_PROJECT_ID@
+    region: @GCP_REGION@
+    network: @GCP_VPC_NETWORK@
+    controlPlaneSubnet: @GCP_CONTROL_PLANE_SUBNET@
+    computeSubnet: @GCP_COMPUTE_SUBNET@
+fips: @OCP_FIPS@
+publish: @GCP_INSTALL_PUBLISH@

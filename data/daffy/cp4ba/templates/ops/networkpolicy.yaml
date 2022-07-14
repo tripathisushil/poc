@@ -1,0 +1,22 @@
+############################################################
+#Author           : Gerry Baird
+#Author email     : gerry.baird@uk.ibm.com
+#Original Date    : 2022-05-10
+#Initial Version  : v2022-05-23
+############################################################
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ads-ml-service-policy
+  namespace: @CP4BA_OPS_ML_NAMESPACE@
+spec:
+  ingress:
+  - from:
+    ports:
+    - protocol: TCP
+      port: 8080
+  podSelector:
+    matchLabels:
+      app: open-prediction
+  policyTypes:
+  - Ingress

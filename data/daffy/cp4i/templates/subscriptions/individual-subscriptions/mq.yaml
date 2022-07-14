@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-mq
+  namespace: ibm-common-services
+spec:
+  channel: v1.4
+  name: ibm-cp-integration
+  source: @IBM_CLOUD_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace

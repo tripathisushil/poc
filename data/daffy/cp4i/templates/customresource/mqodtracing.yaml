@@ -1,0 +1,10 @@
+apiVersion: integration.ibm.com/v1beta2
+kind: OperationsDashboardServiceBinding
+metadata:
+  name: od-service-binding
+spec:
+  odNamespace: "@CP4I_NAMESPACE@"
+  odInstanceName: "tracing"
+  sourceInstanceName: "mq0"
+  sourcePodName: "mq0-ibm-mq-0"
+  sourceSecretName: "icp4i-od-store-cred"

@@ -1,0 +1,274 @@
+##########################################################################################################
+                              Running daffy build process v2022-05-23a
+##########################################################################################################
+Start time : Thu Jun 30 14:58:28 UTC 2022
+
+[36mChecking OS before continuing on
+################################################################(B[m
+Linux is being used
+
+
+[36mCurrent T-Shirt Sizing Info
+################################################################(B[m
+Setting VM T-Shirt Size to Large
+AWS Platform:
+Bootstrap Node type = m5.xlarge
+
+Master Nodes:
+--------------------------------------------------
+AWS_MACHINE_TYPE_MASTER_LARGE=m5.xlarge
+VM_NUMBER_OF_MASTERS_LARGE=3
+AWS_MACHINE_TYPE_MASTER_CPU_LARGE=4
+
+Worker Nodes
+--------------------------------------------------
+AWS_MACHINE_TYPE_WORKER_LARGE=m5.4xlarge
+VM_NUMBER_OF_WORKERS_LARGE=6
+AWS_MACHINE_TYPE_WORKER_CPU_LARGE=16
+
+OpenShift Storage Cluster Storage(Filesytem):
+--------------------------------------------------
+AWS_OCP_OCS_STORAGE_CLASS_FILE_SIZE=1T
+
+OpenShift Storage Cluster Storage(Block):
+--------------------------------------------------
+AWS_OCP_OCS_STORAGE_CLASS_BLOCK_SIZE=2T
+
+
+[36mPrechecks
+################################################################(B[m
+
+[36mPrepare host (LOG -> /data/daffy/log/bjs-cp4i/ocp/apt-get.log )
+################################################################(B[m
+[36mPASSED (B[m Your path has /usr/local/bin
+(B[mrunning update  - apt-get -y update
+(B[mrunning upgrade - apt-get -y upgrade
+(B[mrunning install - nmon net-tools curl nano vim tree wget unzip jq expect apache2-utils dnsutils openssh-client
+(B[m
+
+
+[36mValidation of Base Values
+################################################################(B[m
+[36mPASSED (B[m Valid DAFFY_DEPLOYMENT_TYPE of POC
+[36mPASSED (B[m Valid DAFFY_ISC_NUMBER of 0063h00000IPfK5AAL
+[36mPASSED (B[m Valid DAFFY_CUSTOMER_NAME of BJ's Wholesale Club
+[36mPASSED (B[m Valid OCP_INSTALL_TYPE of aws-ipi for ocp
+
+[36mValidate Cluster Name
+################################################################(B[m
+[36mPASSED (B[m bjs-cp4i is a valid cluster name
+
+
+[36mValidate Base Domain (valid FQDN syntax)
+################################################################(B[m
+[36mPASSED (B[m ocp.bjswholesale.info is a valid FQDN String
+
+
+[36mValidate Version of OpenShift (LOG ->  /data/daffy/log/bjs-cp4i/ocp/ocpVersionCheck.log)
+################################################################(B[m
+[36mPASSED (B[m Valid Version of OpenShift - 4.8.40
+
+
+[36mValidate Install Type Settings
+################################################################(B[m
+
+[36mInstall AWS command line tool (LOG -> /data/daffy/log/bjs-cp4i/aws-cli-install.log )
+################################################################(B[m
+[36mPASSED (B[m aws-cli already installed.
+AWS Default Region = us-east-1
+
+
+[36mValidate AWS Account Permissions
+################################################################(B[m
+[36mPASSED (B[m AdministratorAccess has been verified (arn:aws:iam::aws:policy/AdministratorAccess)
+
+
+[36mValidate AWS Quota's(Max Allowed but not Currently Utilized)
+################################################################(B[m
+[36mPASSED (B[m Quota requirement (L-34B43A08 - All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests )  - Extra 528
+[36mPASSED (B[m Quota requirement (L-0263D0A3 - EC2-VPC Elastic IPs )  - Extra 8
+[36mPASSED (B[m Quota requirement (L-F678F1CE - VPCs per Region )  - Extra 9
+[36mPASSED (B[m Quota requirement (L-53DA6B97 - Application Load Balancers per Region )  - Extra 47
+[36mPASSED (B[m Quota requirement (L-FE5A380F - NAT gateways per Availability Zone )  - Extra 4
+[36mPASSED (B[m Quota requirement (L-DF5E4CA3 - Network interfaces per Region )  - Extra 4973
+[36mPASSED (B[m Quota requirement (L-1B52E74A - Gateway VPC endpoints per Region )  - Extra 19
+[36mPASSED (B[m Quota requirement (L-E79EC296 - VPC security groups per Region )  - Extra 2490
+
+
+[36mValidate AWS Route53 Public Hosted Zone (LOG -> /data/daffy/log/bjs-cp4i/aws-route53.out )
+################################################################(B[m
+[36mINFO (B[m AWS is Internal, skip DNS Zone check.
+
+
+[36mChecking AWS Subnets
+################################################################(B[m
+[36mPASSED (B[m Subnet exist subnet-0a5f39fd082f14b0b
+[36mPASSED (B[m Subnet exist subnet-0492bd472e0b60d3d
+[36mPASSED (B[m Subnet exist subnet-05bdb5b484f579c32
+[36mPASSED (B[m Subnet exist subnet-04290fcfdc25af0ad
+[36mPASSED (B[m Subnet exist subnet-0c17abbe0ad66da67
+[36mPASSED (B[m Subnet exist subnet-0e400f5a409e8cc32
+[36mPASSED (B[m subnet-0492bd472e0b60d3d belongs to VPC vpc-0a6d694ba64b4a5fc
+[36mPASSED (B[m subnet-05bdb5b484f579c32 belongs to VPC vpc-0a6d694ba64b4a5fc
+[36mPASSED (B[m subnet-04290fcfdc25af0ad belongs to VPC vpc-0a6d694ba64b4a5fc
+[36mPASSED (B[m subnet-0c17abbe0ad66da67 belongs to VPC vpc-0a6d694ba64b4a5fc
+[36mPASSED (B[m subnet-0e400f5a409e8cc32 belongs to VPC vpc-0a6d694ba64b4a5fc
+[36mPASSED (B[m VPC CIDR(172.30.0.0/16) matches AWS_NETWORKING_MACHINE_NETWORK_CIDR(172.30.0.0/16)
+
+All prechecks passed, lets get to work.
+
+
+[36mPrepare Input Files
+################################################################(B[m
+[36mCOMPLETE (B[mAll install files moved to /data/daffy/tmp/bjs-cp4i/ocp and updated based on your environment.
+
+[36mGet OpenShift
+################################################################(B[m
+Missing correct version of oc command line tools - downloading now 
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.8.40/openshift-client-linux-4.8.40.tar.gz
+Client Version: 4.8.40
+
+Missing correct version of openshift-install command line tool - downloading now 
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.8.40/openshift-install-linux-4.8.40.tar.gz
+openshift-install 4.8.40
+
+
+[36mSSH Public Key
+################################################################(B[m
+Agent pid 5704
+
+
+[36mRun openshift-install (LOG -> /data/daffy/log/bjs-cp4i/ocp/create-cluster.log )
+################################################################(B[m
+Running openshift-install --dir=/data/daffy/tmp/bjs-cp4i/ocp/ocp-install create cluster  in dir  /data/daffy/tmp/bjs-cp4i/ocp/ocp-install
+[36mINFO[0m Credentials loaded from the "default" profile in file "/root/.aws/credentials" 
+[36mINFO[0m Consuming Install Config from target directory 
+[36mINFO[0m Creating infrastructure resources...         
+[36mINFO[0m Waiting up to 20m0s for the Kubernetes API at https://api.bjs-cp4i.ocp.bjswholesale.info:6443... 
+[36mINFO[0m API v1.21.11+6b3cbdd up                      
+[36mINFO[0m Waiting up to 30m0s for bootstrapping to complete... 
+[36mINFO[0m Destroying the bootstrap resources...        
+[36mINFO[0m Waiting up to 40m0s for the cluster at https://api.bjs-cp4i.ocp.bjswholesale.info:6443 to initialize... 
+I0630 15:12:47.328435    5712 trace.go:205] Trace[1427131847]: "Reflector ListAndWatch" name:k8s.io/client-go/tools/watch/informerwatcher.go:146 (30-Jun-2022 15:12:37.314) (total time: 10014ms):
+Trace[1427131847]: ---"Objects listed" 10014ms (15:12:00.328)
+Trace[1427131847]: [10.014266016s] [10.014266016s] END
+[36mINFO[0m Waiting up to 10m0s for the openshift-console route to be created... 
+[36mINFO[0m Install complete!                            
+[36mINFO[0m To access the cluster as the system:admin user when using 'oc', run 'export KUBECONFIG=/data/daffy/tmp/bjs-cp4i/ocp/ocp-install/auth/kubeconfig' 
+[36mINFO[0m Access the OpenShift web-console here: https://console-openshift-console.apps.bjs-cp4i.ocp.bjswholesale.info 
+[36mINFO[0m Login to the console with user: "kubeadmin", and password: "DEqZh-D5YaW-VmHAB-BadKt" 
+[36mINFO[0m Time elapsed: 34m59s                         
+
+
+[36mConfigure OpenShift Container Storage
+################################################################(B[m
+[32mSetup new OpenShift Container Storage Operator(B[m
+namespace/openshift-storage created
+operatorgroup.operators.coreos.com/openshift-storage-operatorgroup created
+Applying OpenShift Container Storage for 4.8
+subscription.operators.coreos.com/ocs-operator created
+[32mLabel worker nodes for storage(B[m
+node/ip-172-30-132-77.ec2.internal labeled
+node/ip-172-30-132-77.ec2.internal labeled
+node/ip-172-30-132-77.ec2.internal labeled
+node/ip-172-30-132-77.ec2.internal modified
+node/ip-172-30-140-130.ec2.internal labeled
+node/ip-172-30-140-130.ec2.internal labeled
+node/ip-172-30-140-130.ec2.internal labeled
+node/ip-172-30-140-130.ec2.internal modified
+node/ip-172-30-147-20.ec2.internal labeled
+node/ip-172-30-147-20.ec2.internal labeled
+node/ip-172-30-147-20.ec2.internal labeled
+node/ip-172-30-147-20.ec2.internal modified
+Restart OpenShift Router Pods to move to worker nodes if on new infra nodes.
+
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to start install
+[1A                                                                                                                                                                                                                                             
+(B[m[1AWaiting for Container Storage Operator to be installed - wait 5 Minutes(1)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to be installed - wait 5 Minutes(1)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to be installed - wait 5 Minutes(1)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to be installed - wait 5 Minutes(1)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to be installed - wait 5 Minutes(1)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Container Storage Operator to be installed - wait 5 Minutes(1)
+[1A                                                                                                                                                                                                                                             
+(B[m[36mCOMPLETE (B[mContainer Storage Operator installed
+storagecluster.ocs.openshift.io/ocs-storagecluster created
+[36mCOMPLETE (B[mContainer Storage Cluster installed
+
+
+[36mCreate OAuth -  Local Admin user via htpasswd
+################################################################(B[m
+clusterrole.rbac.authorization.k8s.io/cluster-admin added: "ocpadmin"
+secret/htpasswd-secret created
+oauth.config.openshift.io/cluster configured
+
+[36mHere is your cluster info:
+##########################################################################################################(B[m
+Daffy Version            :   v2022-05-23a
+Cluster Version          :   4.8.40
+Bastion OS               :   ubuntu - 22.04
+Platform Install Type    :   aws-ipi
+OpenShift Cluster ID     :   895273fa-1997-4fbf-938a-787afa574828
+OpenShift Cluster Name   :   bjs-cp4i
+api                      :   api.bjs-cp4i.ocp.bjswholesale.info        --->   172.30.152.218, 172.30.142.129, 172.30.175.194
+*.apps                   :   *.apps.bjs-cp4i.ocp.bjswholesale.info     --->   172.30.148.183, 172.30.162.232
+
+
+[36mHere is the login info you can use for all services and console:   
+##########################################################################################################(B[m
+Super User            :      kubeadmin
+Password              :      DEqZh-D5YaW-VmHAB-BadKt
+Admin User            :      ocpadmin
+Password              :      qzC6GORDg8SLVLf3bSbh
+OpenShift Web Console :      [36mhttps://console-openshift-console.apps.bjs-cp4i.ocp.bjswholesale.info(B[m
+OC Commandline        :      export KUBECONFIG=/var/ibm-ocp/bjs-cp4i/kubeconfig
+OC Login command      :      oc login https://api.bjs-cp4i.ocp.bjswholesale.info:6443 -u ocpadmin -p qzC6GORDg8SLVLf3bSbh --insecure-skip-tls-verify
+OC Client Download    :      https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.8.40
+Install Temp Files    :      /data/daffy/tmp/bjs-cp4i/ocp
+openshift-install Dir :      /data/daffy/tmp/bjs-cp4i/ocp/ocp-install
+
+
+
+(B[m
+
+##########################################################################################################
+End Time: Thu Jun 30 15:36:14 UTC 2022
+OpenShift Build Process Completed in 37 minute(s) and 46 second(s)
+##########################################################################################################
+
+

@@ -1,0 +1,18 @@
+############################################################
+#Author           : Gerry Baird
+#Author email     : gerry.baird@uk.ibm.com
+#Original Date    : 2022-05-10
+#Initial Version  : v2022-05-23
+############################################################
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: postgres
+  namespace: @CP4BA_OPS_ML_NAMESPACE@
+spec:
+  storageClassName: @CP4BA_AUTO_STORAGE_CLASS_OCP@
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi

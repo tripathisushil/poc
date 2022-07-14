@@ -1,0 +1,15 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    app.kubernetes.io/instance: ibm-watson-ks-operator-subscription
+    app.kubernetes.io/managed-by: ibm-watson-ks-operator
+    app.kubernetes.io/name: ibm-watson-ks-operator-subscription
+  name: ibm-watson-ks-operator-subscription
+  namespace: @CP4D_OPERATORS_NAMESPACE@
+spec:
+  channel: v4.0
+  name: ibm-watson-ks-operator
+  source: @IBM_CLOUD_CPD_WKS_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace
+  installPlanApproval: @CP4D_INSTALL_PLAN_APPROVAL@

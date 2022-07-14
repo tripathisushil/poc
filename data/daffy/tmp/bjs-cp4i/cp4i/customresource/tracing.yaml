@@ -1,0 +1,21 @@
+apiVersion: integration.ibm.com/v1beta2
+kind: OperationsDashboard
+metadata:
+  labels:
+    app.kubernetes.io/instance: ibm-integration-operations-dashboard
+    app.kubernetes.io/managed-by: ibm-integration-operations-dashboard
+    app.kubernetes.io/name: ibm-integration-operations-dashboard
+  name: tracing
+  namespace: cp4i
+spec:
+  license:
+    accept: true
+    license: CP4I
+  storage:
+    configDbVolume:
+      class: "ocs-storagecluster-cephfs"
+    sharedVolume:
+      class: "ocs-storagecluster-cephfs"
+    tracingVolume:
+      class: "ocs-storagecluster-ceph-rbd"
+  version: 2021.4.1

@@ -1,0 +1,75 @@
+apiVersion: v1
+baseDomain: ocp.bjswholesale.info
+credentialsMode: Mint
+
+  
+  
+  
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  replicas: 6
+  platform:
+    aws:
+      #amiID:
+      rootVolume:
+        iops: 1000
+        size: 128
+        type: gp2
+        kmsKeyARN:  
+      type: m5.4xlarge
+      zones:
+          
+          
+          
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    aws:
+       #amiID:
+       #iamRole:
+       #region:
+       type: m5.xlarge
+       zones:
+           
+           
+           
+  replicas: 3
+metadata:
+  name: bjs-cp4i
+networking:
+  clusterNetwork:
+  - cidr: 172.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 172.30.0.0/16
+  networkType: 
+  serviceNetwork:
+  - 192.168.0.0/16
+platform:
+  aws:
+    amiID: 
+    region: us-east-1
+    subnets:
+      - subnet-0a5f39fd082f14b0b
+      - subnet-0492bd472e0b60d3d
+      - subnet-05bdb5b484f579c32
+      - subnet-04290fcfdc25af0ad
+      - subnet-0c17abbe0ad66da67
+      - subnet-0e400f5a409e8cc32
+    #serviceEndpoints:
+    #  url:
+    #  name:
+    userTags:
+      IBMInstaller: Daffy
+      DaffyInstaller: ssavaliya@bjs.com
+      ocpCluster: bjs-cp4i.ocp.bjswholesale.info
+      Project: Digital
+      AppName: APIC
+      
+      
+publish: Internal
+fips: false

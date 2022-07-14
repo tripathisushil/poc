@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-client-provisioner
+  labels:
+    app: nfs-client-provisioner
+  namespace: nfs-fs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nfs-client-provisioner
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: nfs-client-provisioner
+  template:
+    metadata:
+      labels:
+        app: nfs-client-provisioner
+    spec:
+      serviceAccountName: nfs-client-provisioner
+      containers:
+        - name: nfs-client-provisioner
+          image: @OCP_NFS_IMAGE@
+          volumeMounts:
+            - name: nfs-client-root
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: @OCP_NFS_ENV_PROVISIONER_NAME@
+            - name: NFS_SERVER
+              value: @NFS_IP_ADDRESS@
+            - name: NFS_PATH
+              value: @NFS_FILE_SYSTEM@
+      volumes:
+        - name: nfs-client-root
+          nfs:
+            server: @NFS_IP_ADDRESS@
+            path: @NFS_FILE_SYSTEM@

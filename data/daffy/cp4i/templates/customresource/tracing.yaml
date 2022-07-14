@@ -1,0 +1,21 @@
+apiVersion: integration.ibm.com/v1beta2
+kind: OperationsDashboard
+metadata:
+  labels:
+    app.kubernetes.io/instance: ibm-integration-operations-dashboard
+    app.kubernetes.io/managed-by: ibm-integration-operations-dashboard
+    app.kubernetes.io/name: ibm-integration-operations-dashboard
+  name: tracing
+  namespace: @CP4I_NAMESPACE@
+spec:
+  license:
+    accept: true
+    license: CP4I
+  storage:
+    configDbVolume:
+      class: "@CP4I_STORAGE_CLASS@"
+    sharedVolume:
+      class: "@CP4I_STORAGE_CLASS@"
+    tracingVolume:
+      class: "@CP4I_BLOCK_CLASS@"
+  version: @CP4I_VERSION@

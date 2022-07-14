@@ -1,0 +1,51 @@
+apiVersion: v1
+baseDomain: ocp.bjswholesale.info
+credentialsMode: @AZURE_CREDENTIALS_MODE@
+
+  
+  
+  
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  replicas: 6
+  platform:
+    azure:
+      type:  @AZURE_MACHINE_TYPE_WORKER@
+      osDisk:
+        diskSizeGB: 128G
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    azure:
+      type: @AZURE_MACHINE_TYPE_MASTER@
+      osDisk:
+        diskSizeGB: 128G
+  replicas: 3
+metadata:
+  name: bjs-cp4i
+networking:
+  clusterNetwork:
+  - cidr: @AZURE_NETWORKING_CLUSTER_NETWORK_CIDR@
+    hostPrefix: @AZURE_NETWORKING_CLUSTER_NETWORK_HOST_PREFIX@
+  machineNetwork:
+  - cidr: @AZURE_NETWORKING_MACHINE_NETWORK_CIDR@
+  networkType: @AZURE_NETWORKING_NETWORK_TYPE@
+  serviceNetwork:
+  - @AZURE_NETWORKING_SERVICE_NETWORK@
+platform:
+  azure:
+    baseDomainResourceGroupName: @AZURE_BASE_DOMAIN_RESOURCE_GROUP_NAME@
+    resourceGroupName: @AZURE_RESOURCE_GROUP_NAME@
+    outboundType: @AZURE_OUTBOUND_TYPE@
+    region: @AZURE_REGION@
+    networkResourceGroupName:  @AZURE_NETWORK_RESOURCE_GROUP_NAME@
+    virtualNetwork: @AZURE_VIRTUAL_NETWORK@
+    controlPlaneSubnet: @AZURE_CONTROL_PLANE_SUBNET@
+    computeSubnet:  @AZURE_COMPUTE_SUBNET@
+    cloudName: @AZURE_CLOUD_NAME@
+fips: false
+publish: @AZURE_INSTALL_PUBLISH@

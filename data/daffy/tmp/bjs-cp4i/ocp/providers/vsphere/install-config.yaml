@@ -1,0 +1,55 @@
+apiVersion: v1
+baseDomain: ocp.bjswholesale.info
+
+  
+  
+  
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  replicas: 6
+  platform:
+    vsphere:
+      cpus: 16
+      #coresPerSocket: 16
+      memoryMB: 65536
+      osDisk:
+        diskSizeGB: 128G
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    vsphere:
+      cpus: 8
+      #coresPerSocket: 8
+      memoryMB: 32768
+      osDisk:
+        diskSizeGB: 128G
+  replicas: 3
+metadata:
+  name: bjs-cp4i
+networking:
+  clusterNetwork:
+  - cidr: "@VSPHERE_NETWORKING_CLUSTERNETWORK_CIDR@"
+    hostPrefix: @VSPHERE_NETWORKING_CLUSTERNETWORK_HOSTPREFIX@
+  networkType: "@VSPHERE_NETWORKING_NETWORKTYPE@"
+  serviceNetwork:
+  - "@VSPHERE_NETWORKING_SERVICE_NETWORK@"
+platform:
+  vsphere:
+    vcenter: "@VSPHERE_HOSTNAME@"
+    username: "@VSPHERE_USERNAME@"
+    password: "@VSPHERE_PASSWORD@"
+    datacenter: "@VSPHERE_DATACENTER@"
+    defaultDatastore: "@VSPHERE_DATASTORE@"
+    folder: "@VSPHERE_FOLDER@"
+    apiVIP: @VSPHERE_API_VIP@
+    ingressVIP: @VSPHERE_INGRESS_VIP@
+    cluster: "@VSPHERE_CLUSTER@"
+    network: "@VSPHERE_NETWORK1@"
+    clusterOSImage: @VSPHERE_CLUSTER_OS_IMAGE@
+    resourcePool: "@VSPHERE_RESOURCE_POOL@"
+publish: @VSPHERE_INSTALL_PUBLISH@
+fips: false

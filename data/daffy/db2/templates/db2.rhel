@@ -1,0 +1,43 @@
+#!/bin/sh
+##########################################################
+# chkconfig: 2345 80 10
+# START BLOCK
+# description: Bring up/down db2
+# author:  Kyle Dawson (Kyle.Dawson@us.ibm.com)
+# END BLOCK
+##########################################################
+if [ "$EUID" -ne 0 ] ; then
+      echo "Please run as root!!!!!!"
+      exit 99
+fi
+DB2_INSTALL_PATH=/etc/init.d/db2
+DB2_INSTANCE_OWNER=db2inst1
+rc=0
+#Sourch DB2 Profile
+ . /home/${DB2_INSTANCE_OWNER}/sqllib/db2profile
+
+case "$1" in
+
+  start)
+      ${DB2_INSTALL_PATH}/adm/db2start
+       ;;
+
+  stop)
+     ${DB2_INSTALL_PATH}/adm/db2stop
+       ;;
+
+  status)
+       ps -ef | grep -v grep | grep db2
+       ;;
+
+  restart)
+       /etc/init.d/db2 stop
+       /etc/init.d/db2 start
+       ;;
+
+   *)
+       echo $"Usage: $0 {start|stop|status|restart}"
+       rc=2
+esac
+
+exit $rc

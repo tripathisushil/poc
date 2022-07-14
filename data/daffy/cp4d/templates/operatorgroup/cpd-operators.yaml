@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1alpha2
+kind: OperatorGroup
+metadata:
+  name: @CP4D_OPERATORS_NAMESPACE@
+  namespace: @CP4D_OPERATORS_NAMESPACE@
+spec:
+  targetNamespaces:
+  - @CP4D_OPERATORS_NAMESPACE@

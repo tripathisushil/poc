@@ -1,0 +1,23 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  annotations:
+    cert-manager.io/issuer: apic-poc-ingress-issuer
+    haproxy.router.openshift.io/balance: roundrobin
+  name: apic-poc-gw-gateway-external-bjs
+  namespace: cp4i
+  labels:
+    app.kubernetes.io/instance: apic-poc-gw
+    app.kubernetes.io/name: gateway
+    app.kubernetes.io/part-of: apic-poc
+spec:
+  host: openshift.poc.bjs.com 
+  to:
+    kind: Service
+    name: apic-poc-gw-datapower
+    weight: 100
+  port:
+    targetPort: 9443
+  tls:
+    termination: passthrough
+  wildcardPolicy: None

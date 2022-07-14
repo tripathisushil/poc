@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-cp-security-operator
+  namespace: @CP4SEC_NAMESPACE@
+spec:
+  channel: @CP4SEC_SUBSCRIPTION_CHANNEL@
+  installPlanApproval: Automatic
+  name: ibm-cp-security-operator
+  source: @IBM_CLOUD_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace

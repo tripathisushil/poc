@@ -1,0 +1,12 @@
+# Informix
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: portworx-informix-sc
+provisioner: kubernetes.io/portworx-volume
+parameters:
+  repl: "3"
+  priority_io: high
+  io_profile: db
+  block_size: 2048b
+  allowVolumeExpansion: true

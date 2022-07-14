@@ -1,0 +1,6 @@
+{
+  "subscriptionId": "@AZURE_SUBSCRIPTION_ID@",
+  "clientId": "@AZURE_CLIENT_ID@",
+  "tenantId": "@AZURE_TENANT_ID@",
+  "clientSecret": "@AZURE_CLIENT_SECRET@"
+}

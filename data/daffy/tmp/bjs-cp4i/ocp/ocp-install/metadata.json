@@ -1,0 +1,1 @@
+{"clusterName":"bjs-cp4i","clusterID":"895273fa-1997-4fbf-938a-787afa574828","infraID":"bjs-cp4i-ms72d","aws":{"region":"us-east-1","identifier":[{"kubernetes.io/cluster/bjs-cp4i-ms72d":"owned"},{"openshiftClusterID":"895273fa-1997-4fbf-938a-787afa574828"}],"clusterDomain":"bjs-cp4i.ocp.bjswholesale.info"}}

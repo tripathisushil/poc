@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: cpd-operator
+  namespace: @CP4D_OPERATORS_NAMESPACE@
+spec:
+  channel: @CP4D_PLATFORM_OPERATOR_CHANNEL@
+  installPlanApproval: @CP4D_INSTALL_PLAN_APPROVAL@
+  name: cpd-platform-operator
+  source: @IBM_CLOUD_CPD_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace

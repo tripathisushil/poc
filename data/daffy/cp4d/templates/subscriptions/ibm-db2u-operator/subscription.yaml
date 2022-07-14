@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-db2u-operator
+  namespace: ibm-common-services
+spec:
+  channel: v1.1
+  name: db2u-operator
+  installPlanApproval: @CP4D_INSTALL_PLAN_APPROVAL@
+  source: @IBM_CLOUD_DB2UOPERATOR_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace

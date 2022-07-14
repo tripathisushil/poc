@@ -1,0 +1,15 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    app.kubernetes.io/instance: ibm-cpd-dmc-operator-catalog-subscription
+    app.kubernetes.io/managed-by: ibm-cpd-dmc-operator
+    app.kubernetes.io/name: ibm-cpd-dmc-operator-catalog-subscription
+  name: ibm-cpd-dmc-operator-catalog-subscription
+  namespace: @CP4D_OPERATORS_NAMESPACE@
+spec:
+    channel: @CP4D_IBM_DMC_OPERATOR_CHANNEL@
+    installPlanApproval: @CP4D_INSTALL_PLAN_APPROVAL@
+    name: ibm-dmc-operator
+    source: @IBM_CLOUD_CPD_DMC_CATALOG_SOURCE@
+    sourceNamespace: openshift-marketplace

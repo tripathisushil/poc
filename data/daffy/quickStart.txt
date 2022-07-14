@@ -1,0 +1,23 @@
+Ubuntu 20.x  you can run these steps:
+ 1) DNS Requirements **
+ 2) curl  http://get.daffy-installer.com/download-scripts/daffy-init.sh | bash
+ 3) ***Build your /data/daffy/env/<YourEnvName>-env.sh file with settings - You can use /data/daffy/env/samples as starting point and just copy to new file name.
+ 4) /data/daffy/build.sh <YourEnvName> <CloudPakToInstall>
+
+
+
+
+
+** DNS Requirements
+#####Make sure you create your DNS entries in public DNS server pointing to your Bastion/Load Balancer server
+     #####(FOR vSphere and KVM UPI only)
+       a)  api.<CLUSTER>.<YOUR.DOMAIN.COM>        --->    <YOUR.BASTION.IP>
+       b)  api-int.<CLUSTER>.<YOUR.DOMAIN.COM>    --->    <YOUR.BASTION.IP>
+       c) *.apps.<CLUSTER>.<YOUR.DOMAIN.COM>      --->    <YOUR.BASTION.IP>
+     #####(FOR vSphere IPI only)
+       a)  api.<CLUSTER>.<YOUR.DOMAIN.COM>        --->    <YOUR.BASTION.IP>
+       b) *.apps.<CLUSTER>.<YOUR.DOMAIN.COM>      --->    <YOUR.BASTION.IP>
+   ** If you want the daffy tool to create your DNS in IBM Cloud, add the following to your ~/.profile
+      a)  DNS_API_KEY=#####
+      Add this to your env file
+      a)  DNS_DOMAIN_ID=####

@@ -1,0 +1,24 @@
+[req]
+default_bits = 4096
+prompt = no
+default_md = sha256
+x509_extensions = req_ext
+req_extensions = req_ext
+distinguished_name = dn
+[ dn ]
+C=US
+ST=New York
+L=New York
+O=MyOrg
+OU=MyOrgUnit
+emailAddress=me@working.me
+CN = api.bjs-cp4i.ocp.bjswholesale.info
+[ req_ext ]
+subjectAltName = @alt_names
+[ alt_names ]
+DNS.1 = *.external.apps.bjs-cp4i.ocp.bjswholesale.info
+DNS.2 = openshift.poc-internal.bjs.com
+DNS.3 = openshift.poc.bjs.com
+DNS.4 = apic-poc-gw-gateway-cp4i.external.apps.bjs-cp4i.ocp.bjswholesale.info
+DNS.5 = *.apps.bjs-cp4i.ocp.bjswholesale.info
+DNS.6 = api.bjs-cp4i.ocp.bjswholesale.info

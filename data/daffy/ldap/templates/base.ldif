@@ -1,0 +1,9 @@
+dn: ou=Groups,dc=ibm,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: Groups
+
+dn: ou=Users,dc=ibm,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: Users

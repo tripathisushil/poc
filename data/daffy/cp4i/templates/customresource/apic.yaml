@@ -1,0 +1,49 @@
+apiVersion: apiconnect.ibm.com/v1beta1
+kind: APIConnectCluster
+metadata:
+  labels:
+    app.kubernetes.io/instance: apiconnect
+    app.kubernetes.io/managed-by: ibm-apiconnect
+    app.kubernetes.io/name: apiconnect-minimum
+  name: apic-min
+  namespace: @CP4I_NAMESPACE@
+spec:
+  license:
+    accept: true
+    use: nonproduction
+    license: @APIC_LICENSE@
+  profile: n1xc7.m48
+  version: @APIC_VERSION@
+  storageClassName: "@CP4I_BLOCK_CLASS@"
+  analytics:
+    mq:
+      kafka:
+        volumeClaimTemplate:
+          storageClassName: "@CP4I_BLOCK_CLASS@"
+      zk:
+        volumeClaimTemplate:
+          storageClassName: "@CP4I_BLOCK_CLASS@"
+    storage:
+      coord:
+        volumeClaimTemplate:
+          storageClassName: "@CP4I_BLOCK_CLASS@"
+      data:
+        volumeClaimTemplate:
+          storageClassName: "@CP4I_BLOCK_CLASS@"
+      master:
+        volumeClaimTemplate:
+          storageClassName: "@CP4I_BLOCK_CLASS@"
+  gateway:
+    tokenManagementService:
+      storage:
+        storageClassName: "@CP4I_BLOCK_CLASS@"
+    openTracing:
+      enabled: @TRACING_ENABLED@
+      odTracingNamespace: @CP4I_NAMESPACE@
+  management:
+    databaseVolumeClaimTemplate:
+      storageClassName: "@CP4I_BLOCK_CLASS@"
+    testAndMonitor:
+      enabled: true
+    billing:
+      enabled: true

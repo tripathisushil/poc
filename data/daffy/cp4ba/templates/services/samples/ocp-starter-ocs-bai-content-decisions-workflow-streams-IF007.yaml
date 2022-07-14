@@ -1,0 +1,170 @@
+############################################################
+#Author           : Kyle Dawson
+#Author email     : Kyle.Dawson@us.ibm.com
+#Original Date    : 2022-05-07
+#Initial Version  : v2022-05-23
+############################################################
+apiVersion: icp4a.ibm.com/v1
+kind: ICP4ACluster
+metadata:
+  name: icp4adeploy
+  labels:
+    app.kubernetes.io/instance: ibm-dba
+    app.kubernetes.io/managed-by: ibm-dba
+    app.kubernetes.io/name: ibm-dba
+    release: 21.0.3
+spec:
+  appVersion: 21.0.3
+  ibm_license: accept
+  olm_ibm_license: true
+  shared_configuration:
+    images:
+      keytool_job_container:
+        repository: cp.icr.io/cp/cp4a/ums/dba-keytool-jobcontainer
+        tag: 21.0.3-IF007
+      dbcompatibility_init_container:
+        repository: cp.icr.io/cp/cp4a/aae/dba-dbcompatibility-initcontainer
+        tag: 21.0.3-IF007
+      keytool_init_container:
+        repository: cp.icr.io/cp/cp4a/ums/dba-keytool-initcontainer
+        tag: 21.0.3-IF007
+      umsregistration_initjob:
+        repository: cp.icr.io/cp/cp4a/aae/dba-umsregistration-initjob
+        tag: 21.0.3-IF007
+      openldap:
+        repository: cp.icr.io/cp/cp4a/demo/openldap
+        tag: 1.5.0
+    sc_deployment_fncm_license: non-production
+    sc_deployment_baw_license: non-production
+    sc_deployment_license: non-production
+    sc_deployment_patterns: "foundation,content,decisions,workflow-workstreams"
+    sc_optional_components: "baw_authoring,case,cmis,content_integration,css,decisionCenter,decisionRunner,decisionServerRuntime,pfs,workstreams,bai"
+    sc_deployment_type: "Starter"
+    sc_deployment_platform: "OCP"
+    sc_image_repository: cp.icr.io
+    sc_ingress_enable: false
+    trusted_certificate_list: []
+    storage_configuration:
+      sc_dynamic_storage_classname: ocs-storagecluster-cephfs
+      sc_block_storage_classname: ocs-storagecluster-cephfs
+      sc_slow_file_storage_classname: ocs-storagecluster-cephfs
+      sc_medium_file_storage_classname: ocs-storagecluster-cephfs
+      sc_fast_file_storage_classname: ocs-storagecluster-cephfs
+    sc_run_as_user:
+    sc_cpe_limited_storage: false
+    image_pull_secrets:
+    - admin.registrykey
+  ########################################################################
+  ########   IBM Business Automation Navigator configuration      ########
+  ########################################################################
+  navigator_configuration:
+    image:
+      repository: cp.icr.io/cp/cp4a/ban/navigator
+      tag: ga-3011-icn-if003
+  ########################################################################
+  ########      IBM Resource Registry configuration               ########
+  ########################################################################
+  resource_registry_configuration:
+    images:
+      resource_registry:
+        repository: cp.icr.io/cp/cp4a/aae/dba-etcd
+        tag: 21.0.3-IF007
+  ########################################################################
+  ########      IBM Business Automation Studio configuration      ########
+  ########################################################################
+  bastudio_configuration:
+    images:
+      bastudio:
+        repository: cp.icr.io/cp/cp4a/bas/bastudio
+        tag: 21.0.3-IF007
+    playback_server:
+      images:
+        db_job:
+          repository: cp.icr.io/cp/cp4a/bas/solution-server-helmjob-db
+          tag: 21.0.3-IF007
+        solution_server:
+          repository: cp.icr.io/cp/cp4a/bas/solution-server
+          tag: 21.0.3-IF007
+    jms_server:
+      image:
+        repository: cp.icr.io/cp/cp4a/bas/jms
+        tag: 21.0.3-IF007
+  ########################################################################
+  ########      IBM FileNet Content Manager configuration         ########
+  ########################################################################
+  ecm_configuration:
+    cpe:
+      image:
+        repository: cp.icr.io/cp/cp4a/fncm/cpe
+        tag: ga-558-p8cpe-if001
+    css:
+      image:
+        repository: cp.icr.io/cp/cp4a/fncm/css
+        tag: ga-558-p8css-if001
+    graphql:
+      image:
+        repository: cp.icr.io/cp/cp4a/fncm/graphql
+        tag: ga-558-p8cgql-if001
+    cmis:
+      image:
+        repository: cp.icr.io/cp/cp4a/fncm/cmis
+        tag: ga-306-cmis-la105
+  ########################################################################
+  ########      IBM Operational Decision Manager configuration    ########
+  ########################################################################
+  odm_configuration:
+    image:
+      repository: "cp.icr.io/cp/cp4a/odm"
+      pullSecrets: "admin.registrykey"
+    decisionCenter:
+      enabled: true
+    decisionServerRuntime:
+      enabled: true
+    decisionRunner:
+      enabled: true
+  ########################################################################
+  ########   IBM BAW Designer Server configuration                ########
+  ########################################################################
+  workflow_authoring_configuration:
+    image:
+      repository: cp.icr.io/cp/cp4a/bas/workflow-authoring
+      tag: 21.0.3-IF007
+    pfs_bpd_database_init_job:
+      repository: cp.icr.io/cp/cp4a/baw/pfs-bpd-database-init-prod
+      tag: 21.0.3-IF007
+    upgrade_job:
+      repository: cp.icr.io/cp/cp4a/baw/workflow-server-dbhandling
+      tag: 21.0.3-IF007
+    ibm_workplace_job:
+      repository: cp.icr.io/cp/cp4a/baw/iaws-ibm-workplace
+      tag: 21.0.3-IF007
+    bas_auto_import_job:
+      repository: cp.icr.io/cp/cp4a/baw/toolkit-installer
+      tag: 21.0.3-IF007
+    content_integration:
+      init_job_image:
+        repository: cp.icr.io/cp/cp4a/baw/iaws-ps-content-integration
+        tag: 21.0.3-IF007
+    case:
+      init_job_image:
+        repository: cp.icr.io/cp/cp4a/baw/workflow-server-case-initialization
+        tag: 21.0.3-IF007
+    jms:
+      image:
+        repository: cp.icr.io/cp/cp4a/baw/jms
+        tag: 21.0.3-IF007
+  ########################################################################
+  ########   IBM Process Federation Server configuration          ########
+  ########################################################################
+  pfs_configuration:
+    image:
+      repository: cp.icr.io/cp/cp4a/baw/pfs-prod
+      tag: 21.0.3-IF007
+  ########################################################################
+  ########      IBM Business Automation Insights configuration    ########
+  ########################################################################
+  bai_configuration:
+    image_credentials:
+      registry: cp.icr.io/cp/cp4a
+    business_performance_center:
+      all_users_access: true

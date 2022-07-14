@@ -1,0 +1,40 @@
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  name: mq0
+  namespace: @CP4I_NAMESPACE@
+spec:
+  securityContext:
+    initVolumeAsRoot: false
+    supplementalGroups:
+      - 99
+  license:
+    accept: true
+    license: @MQ_LICENSE@
+    use: NonProduction
+  queueManager:
+    name: mq0
+    resources:
+      limits:
+        cpu: 500m
+      requests:
+        cpu: 500m
+    storage:
+      queueManager:
+        type: persistent-claim
+      defaultClass: "@CP4I_BLOCK_CLASS@"
+    availability:
+      type: SingleInstance
+  template:
+    pod:
+      containers:
+        - env:
+            - name: MQSNOAUT
+              value: 'yes'
+          name: qmgr
+  version: @MQ_VERSION@
+  web:
+    enabled: true
+  tracing:
+    enabled: @TRACING_ENABLED@
+    namespace: @CP4I_NAMESPACE@

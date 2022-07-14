@@ -1,0 +1,18 @@
+apiVersion: integration.ibm.com/v1beta1
+kind: AssetRepository
+metadata:
+    name: assetrepo
+    namespace:  @CP4I_NAMESPACE@
+spec:
+    designerAIFeatures:
+      enabled: true
+    license:
+      accept: true
+      license: @ASSET_REPO_LICENSE@
+    replicas: 1
+    storage:
+      assetDataVolume:
+        class: "@CP4I_STORAGE_CLASS@"
+      couchVolume:
+        class: "@CP4I_BLOCK_CLASS@"
+    version: @CP4I_VERSION@

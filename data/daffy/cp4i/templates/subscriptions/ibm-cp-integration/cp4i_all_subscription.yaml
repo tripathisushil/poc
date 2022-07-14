@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-cp-integration
+  namespace: @CP4I_NAMESPACE@
+spec:
+  channel: @CP4I_SUBSCRIPTION_CHANNEL@
+  installPlanApproval: Automatic
+  name: ibm-cp-integration
+  source: @IBM_CLOUD_CATALOG_SOURCE@
+  sourceNamespace: openshift-marketplace

@@ -1,0 +1,13 @@
+apiVersion: core.automation.ibm.com/v1beta1
+kind: AutomationUIConfig
+metadata:
+  name: wsa-automationui
+  namespace: @WSA_INSTANCE_NAMESPACE@
+spec:
+  description: automationuiconfig
+  license:
+    accept: true
+  version: @AUTOMATIONUI_VERSION@
+  tls: {}
+  storage:
+    class: @WSA_STORAGE_CLASS@

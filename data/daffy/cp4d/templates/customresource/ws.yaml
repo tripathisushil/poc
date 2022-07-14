@@ -1,0 +1,12 @@
+apiVersion: ws.cpd.ibm.com/v1beta1
+kind: WS
+metadata:
+  name: ws-cr
+  namespace: @CP4D_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+    license: Enterprise
+  version: @CP4D_VERSION@
+  storageVendor: @CP4D_STORAGE_VENDOR@
+  storageClass: @CP4D_STORAGE_CLASS@

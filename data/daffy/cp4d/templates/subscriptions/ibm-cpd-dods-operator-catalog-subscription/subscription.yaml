@@ -1,0 +1,15 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    app.kubernetes.io/instance: ibm-cpd-dods-operator-catalog-subscription
+    app.kubernetes.io/managed-by: ibm-cpd-dods-operator
+    app.kubernetes.io/name: ibm-cpd-dods-operator-catalog-subscription
+  name: ibm-cpd-dods-operator-catalog-subscription
+  namespace: @CP4D_OPERATORS_NAMESPACE@
+spec:
+    channel: @CP4D_IBM_DODS_OPERATOR_CHANNEL@
+    installPlanApproval: @CP4D_INSTALL_PLAN_APPROVAL@
+    name: ibm-cpd-dods
+    source: @IBM_CLOUD_CPD_DODS_CATALOG_SOURCE@
+    sourceNamespace: openshift-marketplace

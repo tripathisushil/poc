@@ -1,0 +1,768 @@
+##########################################################################################################
+                              Running daffy service process v2022-05-23a
+##########################################################################################################
+Start time : Thu Jun 30 16:29:12 UTC 2022
+
+[36mChecking OS before continuing on
+################################################################(B[m
+Linux is being used
+[36m###############################################################################(B[m
+Login to oc as admin user - ocpadmin
+[36m###############################################################################(B[m
+
+[36mValidate OCP Access
+################################################################(B[m
+[36mPASSED (B[m Access to cluster via oc command(B[m
+
+
+[36mPrechecks
+################################################################(B[m
+
+[36mPrepare host (LOG -> /data/daffy/log/bjs-cp4i/cp4i/apt-get.log )
+################################################################(B[m
+[36mPASSED (B[m Your path has /usr/local/bin
+(B[mrunning update  - apt-get -y update
+(B[mrunning upgrade - apt-get -y upgrade
+(B[mrunning install - nmon net-tools curl nano vim tree wget unzip jq expect apache2-utils dnsutils openssh-client
+(B[m
+
+[36mValidation of Base Values
+################################################################(B[m
+[36mPASSED (B[m Valid DAFFY_DEPLOYMENT_TYPE of POC
+[36mPASSED (B[m Valid DAFFY_ISC_NUMBER of 0063h00000IPfK5AAL
+[36mPASSED (B[m Valid DAFFY_CUSTOMER_NAME of BJ's Wholesale Club
+[36mPASSED (B[m Valid OCP_INSTALL_TYPE of aws-ipi for cp4i
+
+[36mValidate Cluster Name
+################################################################(B[m
+[36mPASSED (B[m bjs-cp4i is a valid cluster name
+
+
+[36mValidate Base Domain (valid FQDN syntax)
+################################################################(B[m
+[36mPASSED (B[m ocp.bjswholesale.info is a valid FQDN String
+
+
+[36mGet OpenShift Tools
+################################################################(B[m
+[36mPASSED (B[m Correct version of oc tools found, will not download - 4.8.40
+[36mPASSED (B[m Entitlement Key found!
+[36mPASSED (B[m Valid version CP4I_VERSION=2021.4.1
+
+[36mValidate Storage Class to be used with Cloud Pak 
+################################################################(B[m
+[36mPASSED (B[m Storage class -> ocs-storagecluster-cephfs exist. (B[m
+
+[36mValidate OpenShift Storage Cluster to be used with Cloud Pak
+################################################################(B[m
+
+[1AWaiting for Storage Cluster - ocs-storagecluster to be ready (Up to 15 min)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Storage Cluster - ocs-storagecluster to be ready (Up to 15 min)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Storage Cluster - ocs-storagecluster to be ready (Up to 15 min)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Storage Cluster - ocs-storagecluster to be ready (Up to 15 min)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Storage Cluster - ocs-storagecluster to be ready (Up to 15 min)
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for Storage Cluster - ocs-storagecluster to be ready (Up to 15 min)
+[1A                                                                                                                                                                                                                                             
+(B[m[36mPASSED (B[m Storage Cluster -> ocs-storagecluster is ready.
+
+
+
+[36mValidate Storage Class to be used with Cloud Pak 
+################################################################(B[m
+[36mPASSED (B[m Storage class -> ocs-storagecluster-ceph-rbd exist. (B[m
+
+
+[36mValidate OCP Access
+################################################################(B[m
+[36mPASSED (B[m Access to cluster via oc command(B[m
+[36mPASSED (B[m VM_TSHIRT_SIZE of Large for Cloud Paks
+
+All prechecks passed, lets get to work.
+
+Valid version CP4I Version found=2021.4.1(B[m
+
+
+[36mValidate Tracing Service
+################################################################(B[m
+Checking for existing tracing service
+Operations Dashboard tracing not ready, installing now
+
+[36mDeploy Tracing Service
+################################################################(B[m
+Installing Operations Dashboard Tracing Service first before continuing onto other Services
+operationsdashboard.integration.ibm.com/tracing created
+
+
+[36mWait for Integration Operations Dashboard Tracing Instance to complete
+################################################################(B[m
+
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+[1AWaiting 10 minutes before we start to check!
+[1A                                                                                                                                                                                                                                             
+(B[mIntegration Operations Dashboard Tracing Instance is Ready
+Instance was created in 10 minute(s) and 6 second(s)
+Applying Operations Dashboard tracing secret
+secret/icp4i-od-store-cred created
+
+[36mCloud Pak for Integration Service - Ace Dashboard
+################################################################(B[m
+
+
+[36mCloud Pak for Integration Service - Ace Designer
+################################################################(B[m
+
+
+[36mCloud Pak for Integration Service - Asset Repository
+################################################################(B[m
+
+
+[36mCloud Pak for Integration Service - MQ Single Instance
+################################################################(B[m
+
+
+[36mCloud Pak for Integration Service - API Connect Instance
+################################################################(B[m
+Enabling Service now
+[1AWaiting for APIC Operator to be installed before we create instance
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for APIC Operator to be installed before we create instance
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for APIC Operator to be installed before we create instance
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for APIC Operator to be installed before we create instance
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for APIC Operator to be installed before we create instance
+[1A                                                                                                                                                                                                                                             
+[1AWaiting for APIC Operator to be installed before we create instance
+[1A                                                                                                                                                                                                                                             
+(B[m[36mCOMPLETE (B[mAPIC Operator installed
+
+Updating Service for Tracing
+
+Your request to install the service has been submitted.  It can take up to 45 minutes.
+To check on the status of your service, you can run the following command:
+            /data/daffy/cp4i/service.sh bjs-cp4i --APICStatus
+
+Applying ODService binding
+operationsdashboardservicebinding.integration.ibm.com/od-service-binding created
+
+
+[36mCloud Pak for Integration Service - MQ Prod HA Instance
+################################################################(B[m
+
+
+[36mCloud Pak for Integration Service - Event Streams Instance
+################################################################(B[m
+
+
+
+##########################################################################################################
+End Time: Thu Jun 30 16:40:11 UTC 2022
+CP4I Service Completed in 10 minute(s) and 59 second(s)
+##########################################################################################################
+
+

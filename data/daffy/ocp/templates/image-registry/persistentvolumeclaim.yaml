@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: image-registry-pvc
+  namespace: openshift-image-registry
+spec:
+  storageClassName: @OCP_IMAGE_REGISTRY_STORAGE_CLASS@
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: @OCP_IMAGE_REGISTRY_STORAGE_SIZE@

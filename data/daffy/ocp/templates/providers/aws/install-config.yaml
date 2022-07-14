@@ -1,0 +1,75 @@
+apiVersion: v1
+baseDomain: @BASE_DOMAIN@
+credentialsMode: @AWS_CREDENTIALS_MODE@
+proxy:
+  httpProxy: @OCP_PROXY_HTTP_PROXY@
+  httpsProxy: @OCP_PROXY_HTTPS_PROXY@
+  noProxy: @OCP_PROXY_NO_PROXY@
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  replicas: @VM_NUMBER_OF_WORKERS@
+  platform:
+    aws:
+      #amiID:
+      rootVolume:
+        iops: @AWS_DISK_VOLUME_IOPS@
+        size: @VM_WORKER_DISK1@
+        type: @AWS_DISK_VOLUME_TYPE@
+        kmsKeyARN:  @AWS_WORKER_ROOTVOLUME_KMSKEYARN@
+      type: @AWS_MACHINE_TYPE_WORKER@
+      zones:
+          @AWS_MACHINE_TYPE_WORKER_AVAIL_ZONE1@
+          @AWS_MACHINE_TYPE_WORKER_AVAIL_ZONE2@
+          @AWS_MACHINE_TYPE_WORKER_AVAIL_ZONE3@
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    aws:
+       #amiID:
+       #iamRole:
+       #region:
+       type: @AWS_MACHINE_TYPE_MASTER@
+       zones:
+           @AWS_MACHINE_TYPE_MASTER_AVAIL_ZONE1@
+           @AWS_MACHINE_TYPE_MASTER_AVAIL_ZONE2@
+           @AWS_MACHINE_TYPE_MASTER_AVAIL_ZONE3@
+  replicas: @VM_NUMBER_OF_MASTERS@
+metadata:
+  name: @CLUSTER_NAME@
+networking:
+  clusterNetwork:
+  - cidr: @AWS_NETWORKING_CLUSTER_NETWORK_CIDR@
+    hostPrefix: @AWS_NETWORKING_CLUSTER_NETWORK_HOST_PREFIX@
+  machineNetwork:
+  - cidr: @AWS_NETWORKING_MACHINE_NETWORK_CIDR@
+  networkType: @AWS_NETWORKING_MACHINE_NETWORK@
+  serviceNetwork:
+  - @AWS_NETWORKING_SERVICE_NETWORK@
+platform:
+  aws:
+    amiID: @AWS_AMI_ID@
+    region: @AWS_REGION@
+    subnets:
+      @AWS_SUBNET1@
+      @AWS_SUBNET2@
+      @AWS_SUBNET3@
+      @AWS_SUBNET4@
+      @AWS_SUBNET5@
+      @AWS_SUBNET6@
+    #serviceEndpoints:
+    #  url:
+    #  name:
+    userTags:
+      @AWS_USER_TAG_MAIN1@
+      @AWS_USER_TAG_MAIN2@
+      @AWS_USER_TAG1@
+      @AWS_USER_TAG2@
+      @AWS_USER_TAG3@
+      @AWS_USER_TAG4@
+      @AWS_USER_TAG5@
+publish: @AWS_INSTALL_PUBLISH@
+fips: @OCP_FIPS@

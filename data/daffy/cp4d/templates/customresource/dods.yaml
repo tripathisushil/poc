@@ -1,0 +1,10 @@
+apiVersion: dods.cpd.ibm.com/v1beta1
+kind: DODS
+metadata:
+  name: dods-cr
+  namespace: @CP4D_INSTANCE_NAMESPACE@
+spec:
+  license:
+    accept: true
+    license: Enterprise
+  version: @CP4D_VERSION@
